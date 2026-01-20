@@ -30,12 +30,12 @@ Ensure the `VITE_API_BASE_URL` in your frontend `.env.local` points to your PC's
 `VITE_API_BASE_URL=http://192.168.1.10:5000/api`
 
 ## Deployment & GitHub
-1. Create a new repository on [GitHub](https://github.com/new).
+1. Create a new repository on [GitHub](https://github.com/new) named `BioVitam-Website`.
 2. Follow the instructions in the project root to push:
 ```bash
 git init
 git add .
 git commit -m "Initialize BioVitam Website"
-git remote add origin https://github.com/YOUR_USERNAME/BioVitam-Website.git
+git remote add origin https://github.com/BrianCyrus-Cypher/BioVitam-Website.git
 git push -u origin main
 ```
