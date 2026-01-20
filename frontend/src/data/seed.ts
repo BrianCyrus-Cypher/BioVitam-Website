@@ -4,6 +4,8 @@ export const COMPANY_DATA = {
     tagline: "Cultivating the Future of Organic Productivity",
     about: {
         description: "Biovitam is an organic biofertilizer approved by KEPHIS (Kenya Plant Health Inspectorate Service) and engineered for maximum efficiency. Nova Gardens Limited is the sole distributor of Biovitam Biofertilizers in Kenya.",
+        mission: "Provide affordable, high-quality organic biofertilizers that enhance productivity while protecting soil health.",
+        vision: "To be Kenya's leading producer of certified organic biofertilizers, driving sustainable agricultural innovation.",
         objectives: [
             "Enhance quick recovery from all crop stresses.",
             "Promote foliage growth, massive flowering, and zero abortions.",

@@ -7,8 +7,26 @@ import CertImage from '../assets/profile/9.jpg'
 import { CheckCircle, Shield } from 'lucide-react'
 // @ts-ignore
 import AssuranceImage from '../assets/profile/5.jpg'
+import { api } from '../utils/api'
+import { CertificationsPageData } from '../types'
+
+const FALLBACK_ACCREDITATIONS = [
+    {
+        title: "KEPHIS Approved",
+        subtitle: "Kenya Plant Health Inspectorate Service",
+        description: "Fully registered and approved for distribution in Kenya, meeting all phyto-sanitary requirements for safety and efficacy."
+    },
+    {
+        title: "ECOCERT Inputs",
+        subtitle: "Organic Agriculture Standards",
+        description: "Formulated in accordance with international organic farming regulations, suitable for use in organic crop production."
+    }
+]
 
 export default function Certifications() {
+    const [accreditations, setAccreditations] = useState<CertificationsPageData['accreditations']>(FALLBACK_ACCREDITATIONS)
+    const [intro, setIntro] = useState<CertificationsPageData['intro'] | null>("We adhere to the strictest international standards for organic agriculture. Our products are rigorously tested and certified safe for the environment and consumers.")
+    const [isLoading, setIsLoading] = useState(true)
     const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' })
 
     const openLightbox = (src: string, alt: string) => {
@@ -17,7 +35,30 @@ export default function Certifications() {
 
     useEffect(() => {
         updatePageMeta("Certifications | BioVitam", "Our quality assurance and organic certifications.", "organic certification, kephis, ecocert")
+
+        const fetchCerts = async () => {
+            try {
+                const data = await api.getCertificationsPage() as CertificationsPageData
+                if (data) {
+                    if (data.intro) setIntro(data.intro)
+                    if (data.accreditations) setAccreditations(data.accreditations)
+                }
+            } catch (err) {
+                console.warn('Failed to fetch certifications, using fallback.', err)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+        fetchCerts()
     }, [])
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-biovitam-light dark:bg-background">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-biovitam-olive"></div>
+            </div>
+        )
+    }
 
     return (
         <div className="min-h-screen pt-20 bg-biovitam-light dark:bg-background">
@@ -31,7 +72,7 @@ export default function Certifications() {
                         Quality Assurance & <span className="text-biovitam-olive">Certifications</span>
                     </motion.h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                        We adhere to the strictest international standards for organic agriculture. Our products are rigorously tested and certified safe for the environment and consumers.
+                        {intro}
                     </p>
                 </div>
 
@@ -65,20 +106,15 @@ export default function Certifications() {
                                 Accreditations
                             </h3>
                             <ul className="space-y-6">
-                                <li className="pb-6 border-b border-gray-50 dark:border-gray-800 last:border-0 last:pb-0">
-                                    <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">KEPHIS Approved</h4>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Kenya Plant Health Inspectorate Service</p>
-                                    <p className="text-gray-500 dark:text-gray-500 mt-2 text-sm leading-relaxed">
-                                        Fully registered and approved for distribution in Kenya, meeting all phyto-sanitary requirements for safety and efficacy.
-                                    </p>
-                                </li>
-                                <li className="pb-6 border-b border-gray-50 dark:border-gray-800 last:border-0 last:pb-0">
-                                    <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">ECOCERT Inputs</h4>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Organic Agriculture Standards</p>
-                                    <p className="text-gray-500 dark:text-gray-500 mt-2 text-sm leading-relaxed">
-                                        Formulated in accordance with international organic farming regulations, suitable for use in organic crop production.
-                                    </p>
-                                </li>
+                                {accreditations.map((cert, i) => (
+                                    <li key={i} className="pb-6 border-b border-gray-50 dark:border-gray-800 last:border-0 last:pb-0">
+                                        <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">{cert.title}</h4>
+                                        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{cert.subtitle}</p>
+                                        <p className="text-gray-500 dark:text-gray-500 mt-2 text-sm leading-relaxed">
+                                            {cert.description}
+                                        </p>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
 

@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 dotenv.config();
 
@@ -18,9 +20,20 @@ try {
     console.error('Error loading data.json:', err);
 }
 
-// Middleware
-app.use(cors());
+// Security Middleware
+app.use(helmet());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || '*'
+}));
 app.use(express.json());
+
+// Rate Limiting
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: { error: 'Too many requests, please try again later.' }
+});
+app.use('/api/', limiter);
 
 // Routes
 app.get('/', (req, res) => {
@@ -33,6 +46,8 @@ app.get('/api/products', (req, res) => res.json(siteData.products || []));
 app.get('/api/clientele', (req, res) => res.json(siteData.clientele || []));
 app.get('/api/timeline', (req, res) => res.json(siteData.timeline || []));
 app.get('/api/process-steps', (req, res) => res.json(siteData.processSteps || []));
+app.get('/api/benefits-page', (req, res) => res.json(siteData.benefitsPage || {}));
+app.get('/api/certifications-page', (req, res) => res.json(siteData.certificationsPage || {}));
 
 // Contact Route
 app.post('/api/contact', async (req, res) => {

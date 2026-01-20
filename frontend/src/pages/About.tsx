@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CheckCircle, Target, Globe, ShieldCheck } from 'lucide-react'
 import { SEO, updatePageMeta } from '../utils/seo'
+import { OptimizedImage } from '../components/ui/OptimizedImage'
 import { Lightbox } from '../components/ui/Lightbox'
 import AboutIntro from '../assets/profile/1.jpg'
 import ProcessImg from '../assets/profile/6.jpg'
@@ -9,10 +10,11 @@ import HistoryImg from '../assets/profile/10.jpg'
 
 import { COMPANY_DATA, TIMELINE_DATA } from '../data/seed'
 import { api } from '../utils/api'
+import { CompanyData } from '../types'
 
 export default function About() {
   const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' })
-  const [company, setCompany] = useState(COMPANY_DATA)
+  const [company, setCompany] = useState<CompanyData>(COMPANY_DATA as CompanyData)
   const [timeline, setTimeline] = useState(TIMELINE_DATA)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -33,7 +35,7 @@ export default function About() {
         if (companyData && Object.keys(companyData).length > 0) setCompany(companyData);
         if (timelineData && timelineData.length > 0) setTimeline(timelineData);
       } catch (err) {
-        console.warn('API Fetch failed, using seeded fallback data.', err);
+        console.warn('API Fetch failed, using fallback data.', err);
       } finally {
         setIsLoading(false);
       }
@@ -59,12 +61,19 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              className="relative rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white dark:border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-500 cursor-zoom-in"
-              onClick={() => openLightbox(AboutIntro, "BioVitam Team")}
+              className="relative rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white dark:border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-500"
             >
-              <img src={AboutIntro} alt="BioVitam Team" className="w-full h-auto object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/80 to-transparent flex items-end p-8">
-                <p className="text-white font-heading font-bold text-xl">Dedicated to Soil Health</p>
+              <div className="relative h-96 lg:h-full rounded-organic-lg overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(AboutIntro, "Inside Our Facility")}>
+                <OptimizedImage
+                  src={AboutIntro}
+                  alt="Inside Our Facility"
+                  className="w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/80 to-transparent flex items-end p-8">
+                  <p className="text-white font-heading font-bold text-xl">Dedicated to Soil Health</p>
+                </div>
               </div>
             </motion.div>
             <div className="space-y-6">
@@ -98,7 +107,7 @@ export default function About() {
             <Target className="w-12 h-12 text-biovitam-primary mb-6 relative z-10" />
             <h3 className="text-2xl font-bold text-biovitam-dark dark:text-white mb-4 relative z-10">Our Mission</h3>
             <p className="text-gray-600 dark:text-gray-400 relative z-10">
-              Provide affordable, high-quality organic biofertilizers that enhance productivity while protecting soil health.
+              {company.about.mission}
             </p>
           </motion.div>
 
@@ -113,7 +122,7 @@ export default function About() {
             <Globe className="w-12 h-12 text-biovitam-secondary mb-6 relative z-10" />
             <h3 className="text-2xl font-bold text-biovitam-dark dark:text-white mb-4 relative z-10">Our Vision</h3>
             <p className="text-gray-600 dark:text-gray-400 relative z-10">
-              To be Kenya's leading producer of certified organic biofertilizers, driving sustainable agricultural innovation.
+              {company.about.vision}
             </p>
           </motion.div>
 
@@ -158,10 +167,15 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="order-1 lg:order-2 rounded-organic-lg overflow-hidden shadow-xl cursor-zoom-in"
-              onClick={() => openLightbox(ProcessImg, "Manufacturing Process")}
+              className="order-1 lg:order-2 rounded-organic-lg overflow-hidden shadow-xl"
             >
-              <img src={ProcessImg} alt="Manufacturing Process" className="w-full h-full object-cover" />
+              <div className="relative h-80 lg:h-full rounded-organic overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(ProcessImg, "Quality Control")}>
+                <OptimizedImage
+                  src={ProcessImg}
+                  alt="Quality Control"
+                  className="w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -255,7 +269,7 @@ export default function About() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {company.certifications.map((cert: any, idx: number) => (
+            {company.certifications?.map((cert: any, idx: number) => (
               <motion.div
                 key={cert.name}
                 className="p-10 bg-white dark:bg-card rounded-organic border border-gray-100 dark:border-white/10 shadow-lg flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300"

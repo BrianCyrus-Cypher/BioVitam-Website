@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '../components/ui/Button'
 import { X, Sprout } from 'lucide-react'
+import { OptimizedImage } from '../components/ui/OptimizedImage'
 import { SEO, updatePageMeta } from '../utils/seo'
 import { Lightbox } from '../components/ui/Lightbox'
 import ProductImg1 from '../assets/profile/3.jpg'
@@ -10,19 +11,7 @@ import ProductImg3 from '../assets/profile/11.jpg'
 
 import { PRODUCT_DATA } from '../data/seed'
 import { api } from '../utils/api'
-
-interface Product {
-  id: string
-  name: string
-  formula: string
-  npk: string
-  description: string
-  benefits: string[]
-  details?: string
-  usage?: string
-  packaging?: string
-  image?: string
-}
+import { Product } from '../types'
 
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
@@ -119,7 +108,7 @@ export default function Products() {
                 </div>
               </div>
 
-              <div className="p-12 flex flex-col justify-center text-white relative overflow-hidden">
+              <div className="p-8 lg:p-16 flex flex-col justify-center text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-biovitam-olive/20 rounded-full blur-3xl pointer-events-none" />
 
                 <h2 className="text-4xl font-extrabold mb-2 text-biovitam-secondary">BLOOM BOOSTER</h2>
@@ -236,7 +225,7 @@ export default function Products() {
             viewport={{ once: true }}
             className="bg-white rounded-organic shadow-sm border border-gray-100 overflow-hidden"
           >
-            <div className="p-8 border-b border-gray-100 bg-gray-50/50">
+            <div className="p-6 lg:p-10 border-b border-gray-100 bg-gray-50/50">
               <h2 className="text-3xl font-bold text-biovitam-dark text-center">
                 Quick Comparison
               </h2>
@@ -270,33 +259,37 @@ export default function Products() {
               </table>
             </div>
 
-            {/* Mobile View (Cards) */}
-            <div className="md:hidden space-y-4 p-4">
+            {/* Mobile View (Enhanced Cards) */}
+            <div className="md:hidden space-y-6 p-4">
               {products.map((product) => {
                 const [n, p, k] = product.npk.split('-')
                 return (
-                  <div key={product.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 shadow-sm">
-                    <h3 className="text-xl font-bold text-biovitam-primary mb-2">{product.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4 italic">{product.description}</p>
+                  <div key={product.id} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-lg relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-biovitam-olive/10 rounded-bl-full -z-0" />
 
-                    <div className="grid grid-cols-3 gap-2 mb-4 text-center">
-                      <div className="bg-white p-2 rounded border border-gray-200">
-                        <span className="block font-bold text-gray-900">{n}%</span>
-                        <span className="text-[10px] text-gray-500 uppercase">Nitrogen</span>
-                      </div>
-                      <div className="bg-white p-2 rounded border border-gray-200">
-                        <span className="block font-bold text-gray-900">{p}%</span>
-                        <span className="text-[10px] text-gray-500 uppercase">Phosphate</span>
-                      </div>
-                      <div className="bg-white p-2 rounded border border-gray-200">
-                        <span className="block font-bold text-gray-900">{k}%</span>
-                        <span className="text-[10px] text-gray-500 uppercase">Potassium</span>
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-bold text-biovitam-dark mb-1">{product.name}</h3>
+                      <p className="text-xs font-bold text-biovitam-olive uppercase mb-4 tracking-widest">{product.formula}</p>
+                      <p className="text-gray-600 text-sm mb-6 leading-relaxed">{product.description}</p>
+
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="bg-gray-50 p-3 rounded-xl border border-gray-100 text-center">
+                          <span className="block text-lg font-black text-biovitam-dark">{n}%</span>
+                          <span className="text-[9px] text-gray-500 uppercase font-bold">Nitrogen</span>
+                        </div>
+                        <div className="bg-biovitam-olive/10 p-3 rounded-xl border border-biovitam-olive/20 text-center">
+                          <span className="block text-lg font-black text-biovitam-olive">{p}%</span>
+                          <span className="text-[9px] text-biovitam-olive uppercase font-bold">Phosphate</span>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded-xl border border-gray-100 text-center">
+                          <span className="block text-lg font-black text-biovitam-dark">{k}%</span>
+                          <span className="text-[9px] text-gray-500 uppercase font-bold">Potassium</span>
+                        </div>
                       </div>
                     </div>
-
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="w-full py-2 text-sm font-bold text-biovitam-secondary border border-biovitam-secondary rounded-lg hover:bg-biovitam-secondary hover:text-white transition-colors"
+                      className="mt-6 w-full py-3 text-sm font-bold text-biovitam-secondary border border-biovitam-secondary rounded-xl hover:bg-biovitam-secondary hover:text-white transition-colors shadow-sm hover:shadow-md"
                     >
                       View Details
                     </button>
@@ -343,22 +336,40 @@ export default function Products() {
                   {/* Image in Modal */}
                   {selectedProduct.image && (
                     <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden cursor-zoom-in" onClick={() => openLightbox(selectedProduct.image!, selectedProduct.name)}>
-                      <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                      <OptimizedImage src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
                     </div>
                   )}
 
                   {/* NPK Ratio */}
-                  <div>
-                    <h3 className="text-lg font-bold text-biovitam-dark mb-4 flex items-center">
-                      <span className="w-1.5 h-6 bg-biovitam-primary rounded-full mr-3"></span>
-                      NPK Ratio
-                    </h3>
-                    <div className="bg-gradient-to-br from-biovitam-primary/5 to-biovitam-secondary/5 p-6 rounded-organic border border-biovitam-primary/10">
-                      <div className="flex items-baseline space-x-2">
-                        <p className="text-4xl font-bold text-biovitam-primary tracking-tight">{selectedProduct.npk}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-lg font-bold text-biovitam-dark mb-4 flex items-center">
+                        <span className="w-1.5 h-6 bg-biovitam-primary rounded-full mr-3"></span>
+                        NPK Ratio
+                      </h3>
+                      <div className="bg-gradient-to-br from-biovitam-primary/5 to-biovitam-secondary/5 p-6 rounded-organic border border-biovitam-primary/10">
+                        <div className="flex items-baseline space-x-2">
+                          <p className="text-4xl font-bold text-biovitam-primary tracking-tight">{selectedProduct.npk}</p>
+                        </div>
+                        <p className="text-sm font-medium text-gray-500 mt-2 uppercase tracking-wider">Nitrogen - Phosphate - Potassium</p>
                       </div>
-                      <p className="text-sm font-medium text-gray-500 mt-2 uppercase tracking-wider">Nitrogen - Phosphate - Potassium</p>
                     </div>
+
+                    {selectedProduct.idealFor && (
+                      <div>
+                        <h3 className="text-lg font-bold text-biovitam-dark mb-4 flex items-center">
+                          <span className="w-1.5 h-6 bg-biovitam-olive rounded-full mr-3"></span>
+                          Ideal For
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProduct.idealFor.map((item, idx) => (
+                            <span key={idx} className="px-4 py-2 bg-biovitam-olive/10 text-biovitam-olive rounded-full text-sm font-bold border border-biovitam-olive/20">
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Benefits */}
@@ -380,10 +391,10 @@ export default function Products() {
                   {/* Details & Usage Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Details */}
-                    {selectedProduct.details && (
+                    {selectedProduct.description && (
                       <div className="bg-gray-50 p-6 rounded-organic border border-gray-100">
-                        <h3 className="text-lg font-bold text-biovitam-dark mb-3">Details</h3>
-                        <p className="text-gray-600 leading-relaxed text-sm">{selectedProduct.details}</p>
+                        <h3 className="text-lg font-bold text-biovitam-dark mb-3">Scientific Summary</h3>
+                        <p className="text-gray-600 leading-relaxed text-sm">{selectedProduct.description}</p>
                       </div>
                     )}
 

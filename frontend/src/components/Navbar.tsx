@@ -79,12 +79,14 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-biovitam-primary transition-colors p-2"
+              className="text-gray-600 dark:text-gray-300 hover:text-biovitam-primary transition-all p-3 rounded-lg active:bg-gray-100 dark:active:bg-gray-800"
+              aria-label="Toggle menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -113,10 +115,6 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="flex items-center justify-between px-2 pt-2">
-                <span className="text-gray-600 dark:text-gray-400 font-medium">Theme</span>
-                <ThemeToggle />
-              </div>
               <div className="pt-4">
                 <Button className="w-full justify-center" onClick={() => {
                   window.location.href = '/contact';

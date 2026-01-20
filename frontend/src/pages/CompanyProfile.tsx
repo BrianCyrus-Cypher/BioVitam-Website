@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { updatePageMeta } from '../utils/seo'
 import { useEffect, useState } from 'react'
 import { Lightbox } from '../components/ui/Lightbox'
+import { OptimizedImage } from '../components/ui/OptimizedImage'
 // @ts-ignore
 import ProfileCover from '../assets/profile/0.jpg'
 // @ts-ignore
@@ -10,10 +11,14 @@ import { Button } from '../components/ui/Button'
 import { useNavigate } from 'react-router-dom'
 import { Download, ChevronRight } from 'lucide-react'
 
-import { COMPANY_DATA } from '../data/seed'
+import { COMPANY_DATA as FALLBACK_COMPANY } from '../data/seed'
+import { api } from '../utils/api'
+import { CompanyData } from '../types'
 
 export default function CompanyProfile() {
     const navigate = useNavigate()
+    const [company, setCompany] = useState<CompanyData>(FALLBACK_COMPANY as CompanyData)
+    const [isLoading, setIsLoading] = useState(true)
     const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' })
 
     const openLightbox = (src: string, alt: string) => {
@@ -21,18 +26,39 @@ export default function CompanyProfile() {
     }
 
     useEffect(() => {
-        updatePageMeta(`${COMPANY_DATA.brand} | Company Profile`, COMPANY_DATA.about.description, "biovitam, company profile, organic agriculture")
+        updatePageMeta(`${company.brand} | Company Profile`, company.about.description, "biovitam, company profile, organic agriculture")
+
+        const fetchCompany = async () => {
+            try {
+                const data = await api.getCompany()
+                if (data && Object.keys(data).length > 0) setCompany(data)
+            } catch (err) {
+                console.warn('Failed to fetch company profile, using fallback.', err)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+        fetchCompany()
     }, [])
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-biovitam-light dark:bg-background">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-biovitam-olive"></div>
+            </div>
+        )
+    }
 
     return (
         <div className="min-h-screen pt-20 bg-biovitam-light dark:bg-background">
             {/* Hero / Cover Section corresponding to 0.jpg */}
             <section className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center cursor-zoom-in" onClick={() => openLightbox(ProfileCover, "Biovitam Company Profile Cover")}>
                 <div className="absolute inset-0">
-                    <img
+                    <OptimizedImage
                         src={ProfileCover}
                         alt="Biovitam Company Profile Cover"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-biovitam-dark/90 via-biovitam-dark/50 to-transparent dark:from-black/90 dark:via-black/50" />
                 </div>
@@ -48,10 +74,10 @@ export default function CompanyProfile() {
                             Established Excellence
                         </div>
                         <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white mb-8 leading-tight">
-                            {COMPANY_DATA.tagline.split(' ').slice(0, 3).join(' ')} <span className="text-biovitam-secondary">{COMPANY_DATA.tagline.split(' ').slice(3).join(' ')}</span>
+                            {company.tagline.split(' ').slice(0, 3).join(' ')} <span className="text-biovitam-secondary">{company.tagline.split(' ').slice(3).join(' ')}</span>
                         </h1>
                         <p className="text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl">
-                            {COMPANY_DATA.about.description}
+                            {company.about.description}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5">
                             <Button size="lg" className="bg-biovitam-olive hover:bg-biovitam-olive-dark text-white shadow-xl shadow-biovitam-olive/20 border-0" onClick={(e) => e.stopPropagation()}>
@@ -75,11 +101,11 @@ export default function CompanyProfile() {
                     {/* Hover Card */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-96 bg-white dark:bg-card p-4 rounded-organic shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform group-hover:-translate-y-2 z-30 border border-gray-100 dark:border-white/10">
                         <div className="h-48 rounded-lg overflow-hidden mb-4 cursor-zoom-in" onClick={() => openLightbox(ProcessVisual, "Manufacturing Tech")}>
-                            <img src={ProcessVisual} alt="Manufacturing Tech" className="w-full h-full object-cover" />
+                            <OptimizedImage src={ProcessVisual} alt="Manufacturing Tech" className="w-full h-full" />
                         </div>
                         <h4 className="font-bold text-biovitam-dark dark:text-white mb-2">State-of-the-Art Bio-Reactors</h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            {COMPANY_DATA.qualityAssurance.production}
+                            {company.qualityAssurance.production}
                         </p>
                     </div>
                 </div>
@@ -92,7 +118,7 @@ export default function CompanyProfile() {
                         <div>
                             <h2 className="text-4xl font-bold text-biovitam-olive mb-6">Who We Are</h2>
                             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                                {COMPANY_DATA.name}, trading as <span className="font-bold text-biovitam-dark dark:text-biovitam-secondary">{COMPANY_DATA.brand}</span>, is a premier agricultural solutions provider specializing in bio-fortified organic fertilizers. We bridge the gap between sustainable farming and high-yield commercial agriculture.
+                                {company.name}, trading as <span className="font-bold text-biovitam-dark dark:text-biovitam-secondary">{company.brand}</span>, is a premier agricultural solutions provider specializing in bio-fortified organic fertilizers. We bridge the gap between sustainable farming and high-yield commercial agriculture.
                             </p>
                             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                                 Our flagship products are engineered to combat soil degradation, a critical issue facing farmers today. By analyzing local soil conditions and crop requirements, we formulate precise nutrient blends that rejuvenate the earth while boosting profitability.
@@ -103,7 +129,7 @@ export default function CompanyProfile() {
 
                             <h3 className="text-2xl font-bold text-biovitam-dark dark:text-white mb-8">Core Objectives</h3>
                             <ul className="space-y-6">
-                                {COMPANY_DATA.about.objectives.slice(0, 4).map((item, idx) => (
+                                {company.about.objectives.slice(0, 4).map((item, idx) => (
                                     <li key={idx} className="flex items-start">
                                         <span className="w-8 h-8 rounded-full bg-biovitam-olive flex items-center justify-center text-white font-bold mr-4 shrink-0">{idx + 1}</span>
                                         <div>

@@ -5,6 +5,8 @@
         "tagline": "Cultivating the Future of Organic Productivity",
         "about": {
             "description": "Biovitam is an organic biofertilizer approved by KEPHIS (Kenya Plant Health Inspectorate Service) and engineered for maximum efficiency. Nova Gardens Limited is the sole distributor of Biovitam Biofertilizers in Kenya.",
+            "mission": "Provide affordable, high-quality organic biofertilizers that enhance productivity while protecting soil health.",
+            "vision": "To be Kenya's leading producer of certified organic biofertilizers, driving sustainable agricultural innovation.",
             "objectives": [
                 "Enhance quick recovery from all crop stresses.",
                 "Promote foliage growth, massive flowering, and zero abortions.",
@@ -16,22 +18,45 @@
         },
         "qualityAssurance": {
             "standards": "Our organic fertilizers are produced under the most rigorous standards ensuring consistent purity and efficacy.",
-            "production": "Through a controlled and standardized production process, we transform raw organic matter into a stable, nutrient-rich fertilizer, consistently batch after batch."
+            "batchControl": "Every batch is manufactured according to stringent protocols, guaranteeing a contaminant-free, high-quality product for our customers.",
+            "production": "Through a controlled and standardized production process, we transform raw organic matter into a stable, nutrient-rich fertilizer, consistently batch after batch.",
+            "safety": "We ensure our products are safe for crops, soil, and the environment, adhering to all relevant regulations.",
+            "agronomy": "Our high-efficacy organic fertilizers are complemented by the direct, practical support of our agronomists and extension officers across the country ensuring our partners achieve optimal results."
         },
-        "certifications": [
-            {
-                "body": "KEPHIS",
-                "name": "KEPHIS Approved",
-                "logo": "🏛️",
-                "description": "Kenya Plant Health Inspectorate Service"
-            },
-            {
-                "body": "ECOCERT",
-                "name": "ECOCERT Certified",
-                "logo": "🌿",
-                "description": "Organic Certification Authority"
-            }
-        ]
+        "structure": {
+            "leadership": [
+                {
+                    "role": "Managing Director / Management",
+                    "children": [
+                        "Head of Marketing"
+                    ]
+                },
+                {
+                    "role": "Head of Marketing",
+                    "children": [
+                        "Operations Manager"
+                    ]
+                },
+                {
+                    "role": "Operations Manager",
+                    "children": [
+                        "Manager Coffee",
+                        "Accounts & Office Staff",
+                        "Manager Horticulture",
+                        "Manager Floriculture",
+                        "Chief Agronomist"
+                    ]
+                },
+                {
+                    "role": "Regional County BDAs",
+                    "children": [
+                        "Agronomists",
+                        "Distributors",
+                        "Technical Staff"
+                    ]
+                }
+            ]
+        }
     },
     "products": [
         {
@@ -40,10 +65,20 @@
             "formula": "Premium Bio-Organic NPK",
             "npk": "30-9-12",
             "focus": "Overall Vigor",
-            "description": "Balanced nutrition for vegetative growth and general health.",
+            "description": "Balanced nutrition for vegetative growth and general health. Formulated for all-round plant development.",
             "benefits": [
                 "Balanced nutrient content for all growth stages",
-                "Enhances foliage growth and massive flowering"
+                "Enhances foliage growth and massive flowering",
+                "Improves soil biological activity",
+                "Promotes deep root penetration"
+            ],
+            "usage": "Apply 2-3 tons per hectare during soil preparation. Side-dress monthly during growing season.",
+            "packaging": "25kg & 50kg Bags",
+            "idealFor": [
+                "Coffee",
+                "Tea",
+                "Maize",
+                "Vegetables"
             ]
         },
         {
@@ -51,21 +86,63 @@
             "name": "Strong Plant",
             "formula": "High-Nitrogen Bio-Fortifier",
             "npk": "10-25-15",
-            "focus": "Structural Integrity"
+            "focus": "Structural Integrity",
+            "description": "Fortifies stems and roots for robust, resilient plants. High nitrogen content for maximum biomass.",
+            "benefits": [
+                "Increases stem thickness and strength",
+                "Maximizes leaf surface area for photosynthesis",
+                "Accelerates vegetative recovery after harvest",
+                "Reduces rejection rates in export crops"
+            ],
+            "usage": "Apply 2.5-3.5 tons per hectare. Best used during early growth and recovery phases.",
+            "packaging": "25kg Bags",
+            "idealFor": [
+                "Roses",
+                "Horticulture",
+                "Fodder Crops"
+            ]
         },
         {
             "id": "bloom-booster",
             "name": "Bloom Booster",
             "formula": "High-Phosphate Yield Multiplier",
             "npk": "15-10-45",
-            "focus": "Reproductive Yields"
+            "focus": "Reproductive Yields",
+            "description": "Maximizes flowering and fruiting for higher market value. Targets reproductive hormones for heavy yields.",
+            "benefits": [
+                "Stimulates heavy flowering and fruit set",
+                "Ensures uniform ripening and superior taste",
+                "Increases fruit size and weight",
+                "Reduces flower and fruit abortion"
+            ],
+            "usage": "Apply during flowering and fruit development at 1.5-2 tons per hectare.",
+            "packaging": "25kg Bags",
+            "idealFor": [
+                "Fruit Trees",
+                "Tomatoes",
+                "Export Flowers"
+            ]
         },
         {
             "id": "calcium-nitrate",
             "name": "Calcium Nitrate",
             "formula": "Cell Strength Fortifier",
             "npk": "20-4-6:3",
-            "focus": "Cell Strength"
+            "focus": "Cell Strength",
+            "description": "Enhances cell wall strength and nutrient balance. Essential for preventing diseases like blossom end rot.",
+            "benefits": [
+                "Strengthens cell walls for better shelf life",
+                "Prevents physiological disorders (e.g., Blossom End Rot)",
+                "Improves calcium uptake in acidic soils",
+                "Enhances overall plant immune system"
+            ],
+            "usage": "Apply 1-1.5 tons per hectare as a supplement during peak growth.",
+            "packaging": "25kg Bags",
+            "idealFor": [
+                "Greenhouse Crops",
+                "Berries",
+                "Orchards"
+            ]
         }
     ],
     "clientele": [
@@ -74,7 +151,7 @@
             "name": "Highland Flower Farms",
             "location": "Naivasha, Kenya",
             "category": "Floriculture",
-            "feedback": "The stem strength and color intensity of our roses have improved drastically.",
+            "feedback": "The stem strength and color intensity of our roses have improved drastically. Our export rejection rate fell to nearly zero.",
             "stat": "99% Export Grade"
         },
         {
@@ -82,7 +159,24 @@
             "name": "Kiambu Coffee Estate",
             "location": "Kiambu, Kenya",
             "category": "Coffee",
+            "feedback": "Since switching to Biovitam, we've seen a consistent yield increase of 30kg per tree on our coffee blocks.",
             "stat": "+45% Yield Increase"
+        },
+        {
+            "id": 3,
+            "name": "Rift Valley Horticulture",
+            "location": "Nakuru, Kenya",
+            "category": "Vegetables",
+            "feedback": "Reducing the flush period by 10 days allowed us to hit market windows we previously missed. It's a game changer.",
+            "stat": "10 Days Faster Cycle"
+        },
+        {
+            "id": 4,
+            "name": "Central Highlands Orchards",
+            "location": "Nyeri, Kenya",
+            "category": "Fruit",
+            "feedback": "The fruit size and sweetness (Brix levels) are noticeably better. Our buyers have increased their orders this season.",
+            "stat": "+30% Weight Premium"
         }
     ],
     "timeline": [
@@ -101,33 +195,163 @@
         {
             "year": "2021",
             "event": "ECOCERT organic certification obtained"
+        },
+        {
+            "year": "2023",
+            "event": "Expanded to regional distribution"
+        },
+        {
+            "year": "2024",
+            "event": "Launched direct-to-farmer online platform"
         }
     ],
     "processSteps": [
         {
-            "title": "Raw Material Sourcing",
-            "description": "We utilize high-grade vegetal extracts and avian waste sources, carefully screened for purity and nutrient density.",
-            "details": "Our sourcing strategy prioritizes renewable organic matter that is naturally rich in primary nutrients and trace elements."
+            "id": 1,
+            "title": "Raw Organic Source",
+            "description": "We begin with premium organic matter, ethically sourced from agricultural partners. All materials undergo initial screening for purity and absence of chemical pollutants.",
+            "technical": "Material moisture content stabilized at 45% before processing.",
+            "matrix": {
+                "pH": "6.5-7.2",
+                "Moisture": "45%",
+                "Bacteria": "Controlled Native"
+            }
         },
         {
-            "title": "Bio-Fermentation",
-            "description": "Proprietary fermentation technology that breaks down organic matter into bio-available forms.",
-            "details": "Using specific microbial strains, we ensure the complete conversion of complex molecules into easily absorbable nutrients."
+            "id": 2,
+            "title": "Anaerobic Fermentation",
+            "description": "Our core process involves a multi-stage bio-fermentation cycle. This ensures the breakdown of complex organic molecules into bio-available nutrients.",
+            "technical": "Controlled temperature cycles between 55°C and 65°C to eliminate pathogens.",
+            "matrix": {
+                "pH": "5.5-6.0",
+                "Moisture": "35%",
+                "Aeration": "Intermittent"
+            }
         },
         {
-            "title": "Bio-Fortification",
-            "description": "Enrichment with natural plant hormones, amino acids, and specific microbial biostimulants.",
-            "details": "This step introduces auxins, cytokinins, and essential amino acids that trigger vigorous root development and stress tolerance."
+            "id": 3,
+            "title": "Mineral Fortification",
+            "description": "During the final stages of fermentation, we precisely blend essential minerals and trace elements according to our proprietary NPK formulations.",
+            "technical": "Precision homogenization ensuring uniform nutrient distribution across all batches.",
+            "matrix": {
+                "pH": "6.8-7.5",
+                "Purity": "99.9%",
+                "Solubility": "High"
+            }
         },
         {
-            "title": "Mineral Optimization",
-            "description": "Precision addition of Calcium, Magnesium, Boron, and Zinc to prevent common deficiencies.",
-            "details": "We calibrate the mineral balance to ensure zero antagonism, maximizing the efficacy of every drop."
+            "id": 4,
+            "title": "Beneficial Microbes",
+            "description": "We infuse each batch with dormant beneficial microbial strains that rejuvenate the soil microbiome upon application.",
+            "technical": "Spores are stabilized for long shelf life in various storage conditions.",
+            "matrix": {
+                "StrainCount": "10^9 CFU/g",
+                "Stability": "24 Months",
+                "Activation": "Soil Moisture"
+            }
         },
         {
-            "title": "Quality Assurance",
-            "description": "Every batch undergoes rigorous lab testing for consistency, potency, and safety.",
-            "details": "Our standards exceed local regulatory requirements, ensuring that farmers receive only the highest quality biofertilizer."
+            "id": 5,
+            "title": "Quality Matrix",
+            "description": "The final product undergoes rigorous lab analysis to verify nutrient concentration, moisture content, and absence of heavy metals.",
+            "technical": "Compliance with KEPHIS and ECOCERT standards verified for every batch.",
+            "matrix": {
+                "EC": "2.5-4.0 mS/cm",
+                "NPK": "Batch Verified",
+                "Pathogens": "Zero"
+            }
         }
-    ]
+    ],
+    "benefitsPage": {
+        "intro": {
+            "title": "Unlock Your Soil's Full Potential",
+            "description": "Our advanced formula does more than just feed the plant. It reactivates the soil microbiome, creating a self-sustaining ecosystem for long-term productivity."
+        },
+        "benefits": [
+            {
+                "title": "Increased Crop Yields",
+                "description": "Farmers using Biovitam report significant improvements in crop productivity and quality.",
+                "metrics": [
+                    "20-30% yield increase",
+                    "Improved crop uniformity",
+                    "Faster growth cycles"
+                ]
+            },
+            {
+                "title": "Enhanced Soil Health",
+                "description": "Our biofertilizers improve soil structure, fertility, and microbial diversity.",
+                "metrics": [
+                    "Better water retention",
+                    "Increased organic matter",
+                    "Improved soil pH balance"
+                ]
+            },
+            {
+                "title": "Cost Efficiency",
+                "description": "Reduce dependency on synthetic fertilizers while improving long-term soil sustainability.",
+                "metrics": [
+                    "Lower input costs",
+                    "Reduced chemical use",
+                    "Long-term soil investment"
+                ]
+            },
+            {
+                "title": "Environmental Benefits",
+                "description": "Contribute to sustainable agriculture and reduce your farm's carbon footprint.",
+                "metrics": [
+                    "No chemical runoff",
+                    "Carbon sequestration",
+                    "Biodiversity support"
+                ]
+            }
+        ],
+        "results": {
+            "traditional": [
+                "Heavy dependency on expensive synthetics",
+                "Declining soil fertility and structure degradation",
+                "Lower crop quality and inconsistent yields",
+                "High water usage and chemical runoff",
+                "Increased susceptibility to pests and diseases"
+            ],
+            "biovitam": [
+                "Significantly reduced input costs",
+                "Restored soil microbiome and organic matter",
+                "20-30% higher yields with premium market value",
+                "Better water retention and drought resistance",
+                "Stronger, resilient plants naturally fighting disease"
+            ]
+        },
+        "scienceTestimonials": [
+            {
+                "quote": "Biovitam transformed our flower farm. Our yields increased by 25% and we're now fully certified organic.",
+                "author": "James Kipchoge",
+                "farm": "Kiprotich Flowers, Rift Valley"
+            },
+            {
+                "quote": "The soil quality improvement was noticeable within 6 months. Our water consumption is down, but yields are up!",
+                "author": "Maria Santos",
+                "farm": "Santos Vegetable Cooperative, Central Kenya"
+            },
+            {
+                "quote": "Switching to Biovitam biofertilizers was the best decision for our family farm. Sustainable and profitable.",
+                "author": "Peter Ochieng",
+                "farm": "Ochieng Heritage Farm, Kisumu"
+            }
+        ]
+    },
+    "certificationsPage": {
+        "intro": "We adhere to the strictest international standards for organic agriculture. Our products are rigorously tested and certified safe for the environment and consumers.",
+        "accreditations": [
+            {
+                "title": "KEPHIS Approved",
+                "subtitle": "Kenya Plant Health Inspectorate Service",
+                "description": "Fully registered and approved for distribution in Kenya, meeting all phyto-sanitary requirements for safety and efficacy."
+            },
+            {
+                "title": "ECOCERT Inputs",
+                "subtitle": "Organic Agriculture Standards",
+                "description": "Formulated in accordance with international organic farming regulations, suitable for use in organic crop production."
+            }
+        ]
+    }
 }

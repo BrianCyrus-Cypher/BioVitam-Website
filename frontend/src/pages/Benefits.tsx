@@ -1,8 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { TrendingUp, Target, Leaf, Zap, Microscope } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 import { SEO, updatePageMeta } from '../utils/seo'
+import { api } from '../utils/api'
+import { OptimizedImage } from '../components/ui/OptimizedImage'
+import { BenefitsPageData } from '../types'
 import BenefitIntro from '../assets/profile/2.jpg'
 
 interface Benefit {
@@ -12,7 +15,7 @@ interface Benefit {
   metrics: string[]
 }
 
-const benefits: Benefit[] = [
+const FALLBACK_BENEFITS: Benefit[] = [
   {
     icon: <TrendingUp className="text-biovitam-primary" size={32} />,
     title: 'Increased Crop Yields',
@@ -39,7 +42,7 @@ const benefits: Benefit[] = [
   }
 ]
 
-const testimonials = [
+const FALLBACK_TESTIMONIALS = [
   {
     quote: 'Biovitam transformed our flower farm. Our yields increased by 25% and we\'re now fully certified organic.',
     author: 'James Kipchoge',
@@ -57,10 +60,65 @@ const testimonials = [
   }
 ]
 
+const FALLBACK_RESULTS = {
+  traditional: [
+    "Heavy dependency on expensive synthetics",
+    "Declining soil fertility and structure degradation",
+    "Lower crop quality and inconsistent yields",
+    "High water usage and chemical runoff",
+    "Increased susceptibility to pests and diseases"
+  ],
+  biovitam: [
+    "Significantly reduced input costs",
+    "Restored soil microbiome and organic matter",
+    "20-30% higher yields with premium market value",
+    "Better water retention and drought resistance",
+    "Stronger, resilient plants naturally fighting disease"
+  ]
+}
+
 export default function Benefits() {
+  const [benefits, setBenefits] = useState<Benefit[]>(FALLBACK_BENEFITS)
+  const [testimonials, setTestimonials] = useState<BenefitsPageData['scienceTestimonials']>(FALLBACK_TESTIMONIALS)
+  const [results, setResults] = useState<BenefitsPageData['results']>(FALLBACK_RESULTS)
+  const [isLoading, setIsLoading] = useState(true)
+
+  const mapIcon = (title: string) => {
+    const t = title.toLowerCase()
+    if (t.includes('yield')) return <TrendingUp className="text-biovitam-primary" size={32} />
+    if (t.includes('soil')) return <Leaf className="text-biovitam-secondary" size={32} />
+    if (t.includes('cost')) return <Target className="text-blue-600" size={32} />
+    if (t.includes('environment')) return <Zap className="text-yellow-500" size={32} />
+    return <Leaf className="text-biovitam-primary" size={32} />
+  }
+
   useEffect(() => {
     updatePageMeta(SEO.benefits.title, SEO.benefits.description, SEO.benefits.keywords)
+
+    const fetchData = async () => {
+      try {
+        const data = await api.getBenefitsPage() as BenefitsPageData
+        if (data && data.benefits) {
+          setBenefits(data.benefits.map((b: any) => ({ ...b, icon: mapIcon(b.title) })))
+          if (data.scienceTestimonials) setTestimonials(data.scienceTestimonials)
+          if (data.results) setResults(data.results)
+        }
+      } catch (err) {
+        console.warn('Failed to fetch benefits data, using fallback.', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchData()
   }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-biovitam-light dark:bg-background">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-biovitam-olive"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="pt-20 min-h-screen bg-biovitam-light">
@@ -88,12 +146,16 @@ export default function Benefits() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white"
+              className="rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white dark:border-white/10"
             >
-              <img src={BenefitIntro} alt="BioVitam Science" className="w-full h-auto object-cover" />
+              <OptimizedImage
+                src={BenefitIntro}
+                alt="Sustainable Farming"
+                className="w-full h-[400px] lg:h-[600px]"
+                priority
+              />
               <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg border border-gray-100">
                 <div className="flex items-center gap-4">
                   <div className="bg-biovitam-olive/10 p-3 rounded-full text-biovitam-olive">
@@ -129,7 +191,7 @@ export default function Benefits() {
             {benefits.map((benefit) => (
               <motion.div
                 key={benefit.title}
-                className="p-8 bg-white rounded-organic border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-biovitam-primary/5 hover:border-biovitam-primary/30 transition-all duration-300 group"
+                className="p-6 lg:p-8 bg-white rounded-organic border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-biovitam-primary/5 hover:border-biovitam-primary/30 transition-all duration-300 group"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
@@ -185,7 +247,7 @@ export default function Benefits() {
           >
             {/* Before */}
             <motion.div
-              className="p-10 bg-white rounded-organic border-2 border-transparent shadow-lg"
+              className="p-8 lg:p-12 bg-white rounded-organic border-2 border-transparent shadow-lg"
               variants={{
                 hidden: { opacity: 0, x: -20 },
                 visible: { opacity: 1, x: 0 },
@@ -193,13 +255,7 @@ export default function Benefits() {
             >
               <div className="inline-block px-4 py-1 bg-red-50 text-red-600 rounded-full text-sm font-bold mb-6 border border-red-100">Traditional Farming Issues</div>
               <ul className="space-y-4 text-gray-700">
-                {[
-                  "Heavy dependency on expensive synthetics",
-                  "Declining soil fertility and structure degradation",
-                  "Lower crop quality and inconsistent yields",
-                  "High water usage and chemical runoff",
-                  "Increased susceptibility to pests and diseases"
-                ].map(item => (
+                {results.traditional.map(item => (
                   <li key={item} className="flex items-start">
                     <span className="flex-shrink-0 w-6 h-6 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">✕</span>
                     <span>{item}</span>
@@ -210,7 +266,7 @@ export default function Benefits() {
 
             {/* After */}
             <motion.div
-              className="p-10 bg-white rounded-organic border-2 border-biovitam-primary/20 shadow-xl shadow-biovitam-primary/5 relative overflow-hidden"
+              className="p-8 lg:p-12 bg-white rounded-organic border-2 border-biovitam-primary/20 shadow-xl shadow-biovitam-primary/5 relative overflow-hidden"
               variants={{
                 hidden: { opacity: 0, x: 20 },
                 visible: { opacity: 1, x: 0 },
@@ -220,13 +276,7 @@ export default function Benefits() {
               <div className="relative z-10">
                 <div className="inline-block px-4 py-1 bg-green-50 text-green-600 rounded-full text-sm font-bold mb-6 border border-green-100">The Biovitam Difference</div>
                 <ul className="space-y-4 text-gray-700">
-                  {[
-                    "Significantly reduced input costs",
-                    "Restored soil microbiome and organic matter",
-                    "20-30% higher yields with premium market value",
-                    "Better water retention and drought resistance",
-                    "Stronger, resilient plants naturally fighting disease"
-                  ].map(item => (
+                  {results.biovitam.map(item => (
                     <li key={item} className="flex items-start">
                       <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">✓</span>
                       <span>{item}</span>

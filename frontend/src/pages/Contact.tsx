@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, Sen
 import { SEO, updatePageMeta } from '../utils/seo'
 import FloatingLabelInput from '../components/ui/FloatingLabelInput'
 import MultiStateButton from '../components/ui/MultiStateButton'
+import { api } from '../utils/api'
 import { Toaster, toast } from 'sonner'
 import { useEffect } from 'react'
 // @ts-ignore
@@ -73,8 +74,8 @@ export default function Contact() {
         setButtonState('success')
         toast.success("Opening WhatsApp...")
       } else {
-        // Simulating API call for email
-        await new Promise(resolve => setTimeout(resolve, 2000))
+        // Call Real API for email
+        await api.contact(formState)
         setButtonState('success')
         toast.success("Message sent successfully via Email!")
       }
