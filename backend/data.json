@@ -1,0 +1,133 @@
+{
+    "company": {
+        "name": "Nova Gardens Limited",
+        "brand": "BioVitam",
+        "tagline": "Cultivating the Future of Organic Productivity",
+        "about": {
+            "description": "Biovitam is an organic biofertilizer approved by KEPHIS (Kenya Plant Health Inspectorate Service) and engineered for maximum efficiency. Nova Gardens Limited is the sole distributor of Biovitam Biofertilizers in Kenya.",
+            "objectives": [
+                "Enhance quick recovery from all crop stresses.",
+                "Promote foliage growth, massive flowering, and zero abortions.",
+                "Improve flower and fruit retention and rapid fruit expansions.",
+                "Strengthen resistance against fungal, bacterial, and viral diseases.",
+                "Support heat, frost, and water stress management.",
+                "Enhance fruit taste and ensures quick, uniform ripening."
+            ]
+        },
+        "qualityAssurance": {
+            "standards": "Our organic fertilizers are produced under the most rigorous standards ensuring consistent purity and efficacy.",
+            "production": "Through a controlled and standardized production process, we transform raw organic matter into a stable, nutrient-rich fertilizer, consistently batch after batch."
+        },
+        "certifications": [
+            {
+                "body": "KEPHIS",
+                "name": "KEPHIS Approved",
+                "logo": "🏛️",
+                "description": "Kenya Plant Health Inspectorate Service"
+            },
+            {
+                "body": "ECOCERT",
+                "name": "ECOCERT Certified",
+                "logo": "🌿",
+                "description": "Organic Certification Authority"
+            }
+        ]
+    },
+    "products": [
+        {
+            "id": "all-growth",
+            "name": "All Growth",
+            "formula": "Premium Bio-Organic NPK",
+            "npk": "30-9-12",
+            "focus": "Overall Vigor",
+            "description": "Balanced nutrition for vegetative growth and general health.",
+            "benefits": [
+                "Balanced nutrient content for all growth stages",
+                "Enhances foliage growth and massive flowering"
+            ]
+        },
+        {
+            "id": "strong-plant",
+            "name": "Strong Plant",
+            "formula": "High-Nitrogen Bio-Fortifier",
+            "npk": "10-25-15",
+            "focus": "Structural Integrity"
+        },
+        {
+            "id": "bloom-booster",
+            "name": "Bloom Booster",
+            "formula": "High-Phosphate Yield Multiplier",
+            "npk": "15-10-45",
+            "focus": "Reproductive Yields"
+        },
+        {
+            "id": "calcium-nitrate",
+            "name": "Calcium Nitrate",
+            "formula": "Cell Strength Fortifier",
+            "npk": "20-4-6:3",
+            "focus": "Cell Strength"
+        }
+    ],
+    "clientele": [
+        {
+            "id": 1,
+            "name": "Highland Flower Farms",
+            "location": "Naivasha, Kenya",
+            "category": "Floriculture",
+            "feedback": "The stem strength and color intensity of our roses have improved drastically.",
+            "stat": "99% Export Grade"
+        },
+        {
+            "id": 2,
+            "name": "Kiambu Coffee Estate",
+            "location": "Kiambu, Kenya",
+            "category": "Coffee",
+            "stat": "+45% Yield Increase"
+        }
+    ],
+    "timeline": [
+        {
+            "year": "2015",
+            "event": "Founded as Nova Gardens Ltd"
+        },
+        {
+            "year": "2017",
+            "event": "First biofertilizer formulation completed"
+        },
+        {
+            "year": "2019",
+            "event": "KEPHIS certification achieved"
+        },
+        {
+            "year": "2021",
+            "event": "ECOCERT organic certification obtained"
+        }
+    ],
+    "processSteps": [
+        {
+            "title": "Raw Material Sourcing",
+            "description": "We utilize high-grade vegetal extracts and avian waste sources, carefully screened for purity and nutrient density.",
+            "details": "Our sourcing strategy prioritizes renewable organic matter that is naturally rich in primary nutrients and trace elements."
+        },
+        {
+            "title": "Bio-Fermentation",
+            "description": "Proprietary fermentation technology that breaks down organic matter into bio-available forms.",
+            "details": "Using specific microbial strains, we ensure the complete conversion of complex molecules into easily absorbable nutrients."
+        },
+        {
+            "title": "Bio-Fortification",
+            "description": "Enrichment with natural plant hormones, amino acids, and specific microbial biostimulants.",
+            "details": "This step introduces auxins, cytokinins, and essential amino acids that trigger vigorous root development and stress tolerance."
+        },
+        {
+            "title": "Mineral Optimization",
+            "description": "Precision addition of Calcium, Magnesium, Boron, and Zinc to prevent common deficiencies.",
+            "details": "We calibrate the mineral balance to ensure zero antagonism, maximizing the efficacy of every drop."
+        },
+        {
+            "title": "Quality Assurance",
+            "description": "Every batch undergoes rigorous lab testing for consistency, potency, and safety.",
+            "details": "Our standards exceed local regulatory requirements, ensuring that farmers receive only the highest quality biofertilizer."
+        }
+    ]
+}

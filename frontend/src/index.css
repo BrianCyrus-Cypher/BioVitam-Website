@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 120 4% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 4% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 4% 10%;
+
+    --primary: 84 59% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 120 4% 10%;
+
+    --muted: 120 4% 96%;
+    --muted-foreground: 120 3% 45%;
+
+    --accent: 84 59% 49%;
+    --accent-foreground: 120 4% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 5% 90%;
+    --input: 120 5% 90%;
+    --ring: 84 59% 49%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 145 20% 8%;
+    /* Very dark green/black */
+    --foreground: 0 0% 98%;
+
+    --card: 145 20% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 145 20% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 84 59% 49%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 145 15% 15%;
+    --muted-foreground: 120 5% 65%;
+
+    --accent: 145 15% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 145 15% 15%;
+    --input: 145 15% 15%;
+    --ring: 84 59% 49%;
+  }
+
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans relative overflow-x-hidden text-base;
+    font-size: 16px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Global Mesh Gradient Background - Modified for Dark Mode */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 150, 136, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(248, 249, 250, 0.5) 0%, rgba(232, 245, 233, 0.5) 100%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.dark body::before {
+  background:
+    radial-gradient(circle at 15% 50%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 150, 136, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(10, 20, 10, 0.9) 0%, rgba(5, 15, 5, 0.95) 100%);
+}
+
+/* Glassmorphism System */
+@layer components {
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl text-foreground dark:bg-black/40 dark:border-white/10 dark:text-gray-100;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-md hover:shadow-xl transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-200;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-biovitam-primary to-biovitam-secondary;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full border-4 border-transparent bg-clip-content;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-biovitam-primary;
+}
