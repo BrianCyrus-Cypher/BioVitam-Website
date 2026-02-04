@@ -148,7 +148,7 @@ export default function Products() {
                                             <img
                                                 src={product.image || ProductImg1}
                                                 alt={`${product.name} Formula`}
-                                                className="w-full h-full object-contain p-4 sm:p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)] transform group-hover:scale-110 transition-transform duration-1000"
+                                                className={`w-full h-full object-contain p-4 sm:p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)] transform group-hover:scale-110 transition-transform duration-1000 ${product.id.includes('calcium') ? 'mix-blend-multiply dark:mix-blend-normal' : ''}`}
                                             />
                                         </div>
 
@@ -291,10 +291,13 @@ export default function Products() {
 
                                 {/* Modal Content */}
                                 <div className="p-8 space-y-8">
-                                    {/* Image in Modal */}
+                                    {/* Image in Modal - Optimized for Mobile visibility */}
                                     {selectedProduct.image && (
-                                        <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden cursor-zoom-in" onClick={() => openLightbox(selectedProduct.image!, selectedProduct.name)}>
-                                            <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                                        <div className="relative h-48 sm:h-80 rounded-xl overflow-hidden cursor-zoom-in bg-gray-50 dark:bg-white/5" onClick={() => openLightbox(selectedProduct.image!, selectedProduct.name)}>
+                                            <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-contain p-4" />
+                                            <div className="absolute bottom-2 right-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+                                                Tap to zoom
+                                            </div>
                                         </div>
                                     )}
 
