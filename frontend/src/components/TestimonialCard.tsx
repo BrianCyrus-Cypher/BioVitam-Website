@@ -45,7 +45,7 @@ export function TestimonialCard({
             />
           ))}
         </div>
-        <p className="text-gray-600 text-sm italic">"{content}"</p>
+        <p className="text-gray-600 text-sm italic">&quot;{content}&quot;</p>
       </Card>
     </motion.div>
   )

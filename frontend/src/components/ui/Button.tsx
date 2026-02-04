@@ -40,7 +40,7 @@ export interface ButtonProps
 type MotionButtonProps = ButtonProps & HTMLMotionProps<"button">
 
 const Button = forwardRef<HTMLButtonElement, MotionButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, ...props }, ref) => {
     return (
       <motion.button
         className={cn(buttonVariants({ variant, size, className }))}
@@ -48,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, MotionButtonProps>(
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        {...(props as any)}
+        {...(props as any)} // eslint-disable-line @typescript-eslint/no-explicit-any
       />
     )
   }

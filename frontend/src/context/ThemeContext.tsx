@@ -10,7 +10,7 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
     theme: Theme
-    setTheme: (theme: Theme) => void
+    setTheme: (_theme: Theme) => void
 }
 
 const initialState: ThemeProviderState = {
@@ -56,7 +56,7 @@ export function ThemeProvider({
     }
 
     return (
-        <ThemeProviderContext.Provider {...props} value={value}>
+        <ThemeProviderContext.Provider value={value}>
             {children}
         </ThemeProviderContext.Provider>
     )
@@ -69,8 +69,4 @@ export const useTheme = () => {
         throw new Error("useTheme must be used within a ThemeProvider")
 
     return context
-}
-
-const props = {
-    value: undefined
 }

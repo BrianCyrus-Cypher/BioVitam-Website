@@ -2,10 +2,8 @@ import { motion } from 'framer-motion'
 import { updatePageMeta } from '../utils/seo'
 import { useEffect, useState } from 'react'
 import { Lightbox } from '../components/ui/Lightbox'
-// @ts-ignore
 import CertImage from '../assets/profile/9.jpg'
 import { CheckCircle, Shield } from 'lucide-react'
-// @ts-ignore
 import AssuranceImage from '../assets/profile/5.jpg'
 import { api } from '../utils/api'
 import { CertificationsPageData } from '../types'
@@ -17,8 +15,8 @@ const FALLBACK_ACCREDITATIONS = [
         description: "Fully registered and approved for distribution in Kenya, meeting all phyto-sanitary requirements for safety and efficacy."
     },
     {
-        title: "ECOCERT Inputs",
-        subtitle: "Organic Agriculture Standards",
+        title: "Organic Inputs",
+        subtitle: "International Standards",
         description: "Formulated in accordance with international organic farming regulations, suitable for use in organic crop production."
     }
 ]
@@ -34,7 +32,7 @@ export default function Certifications() {
     }
 
     useEffect(() => {
-        updatePageMeta("Certifications | BioVitam", "Our quality assurance and organic certifications.", "organic certification, kephis, ecocert")
+        updatePageMeta("Certifications | BioVitam", "Our quality assurance and organic certifications.", "organic certification, kephis, quality assurance")
 
         const fetchCerts = async () => {
             try {
@@ -44,6 +42,7 @@ export default function Certifications() {
                     if (data.accreditations) setAccreditations(data.accreditations)
                 }
             } catch (err) {
+                // eslint-disable-next-line no-console
                 console.warn('Failed to fetch certifications, using fallback.', err)
             } finally {
                 setIsLoading(false)
@@ -140,7 +139,7 @@ export default function Certifications() {
                         <div className="max-w-lg">
                             <h3 className="text-3xl font-bold text-white mb-4">Our Commitment to Purity</h3>
                             <p className="text-gray-200 text-lg leading-relaxed mb-8">
-                                Every batch of Biovitam is rigorously tested in our state-of-the-art laboratories. We don't just meet standards; we set new benchmarks for agricultural safety and efficacy.
+                                Every batch of Biovitam is rigorously tested in our state-of-the-art laboratories. We don&apos;t just meet standards; we set new benchmarks for agricultural safety and efficacy.
                             </p>
                             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur px-6 py-3 rounded-full border border-white/20">
                                 <CheckCircle className="text-biovitam-secondary" />

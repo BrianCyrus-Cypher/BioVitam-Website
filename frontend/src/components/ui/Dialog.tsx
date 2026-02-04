@@ -3,7 +3,7 @@ import { cn } from "@/utils/cn"
 
 export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   open?: boolean
-  onOpenChange?: (open: boolean) => void
+  onOpenChange?: (_open: boolean) => void
 }
 
 interface DialogContextValue {
@@ -87,7 +87,10 @@ export const DialogContent = React.forwardRef<
           "fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border border-gray-200 bg-white shadow-lg rounded-organic max-h-[90vh] overflow-y-auto",
           className
         )}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation()
+          onClick?.(e)
+        }}
         {...props}
       >
         {children}

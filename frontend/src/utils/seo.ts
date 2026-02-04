@@ -2,7 +2,7 @@
 export const SEO = {
   home: {
     title: 'Biovitam - Organic Biofertilizers for Kenya',
-    description: 'Premium organic biofertilizers for floriculture and agriculture in Kenya. KEPHIS & ECOCERT certified. Increase crop yields, improve soil health.',
+    description: 'Premium organic biofertilizers for floriculture and agriculture in Kenya. KEPHIS approved. Increase crop yields, improve soil health.',
     keywords: 'biofertilizers Kenya, organic fertilizers, floriculture, agriculture, crop growth, sustainable farming',
     ogImage: '/og-image.jpg',
   },
@@ -13,7 +13,7 @@ export const SEO = {
   },
   about: {
     title: 'About Biovitam - Organic Biofertilizer Company',
-    description: 'Learn about Biovitam (Nova Gardens Ltd). Founded 2015, KEPHIS and ECOCERT certified organic biofertilizers for sustainable agriculture.',
+    description: 'Learn about Biovitam (Nova Gardens Ltd). Founded 2015, KEPHIS approved organic biofertilizers for sustainable agriculture.',
     keywords: 'about Biovitam, organic certification, sustainable agriculture Kenya, Nova Gardens Ltd',
   },
   benefits: {

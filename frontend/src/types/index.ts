@@ -56,7 +56,7 @@ export interface ProcessStep {
     details?: string;
     technical: string;
     matrix: Record<string, string>;
-    icon?: any;
+    icon?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export interface BenefitsPageData {
@@ -87,4 +87,13 @@ export interface CertificationsPageData {
         subtitle: string;
         description: string;
     }>;
+}
+
+export interface FieldEvent {
+    id: number;
+    title: string;
+    date: string;
+    location: string;
+    image: string;
+    description: string;
 }

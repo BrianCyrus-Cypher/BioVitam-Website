@@ -194,7 +194,7 @@
         },
         {
             "year": "2021",
-            "event": "ECOCERT organic certification obtained"
+            "event": "Advanced international organic standards achieved"
         },
         {
             "year": "2023",
@@ -254,7 +254,7 @@
             "id": 5,
             "title": "Quality Matrix",
             "description": "The final product undergoes rigorous lab analysis to verify nutrient concentration, moisture content, and absence of heavy metals.",
-            "technical": "Compliance with KEPHIS and ECOCERT standards verified for every batch.",
+            "technical": "Compliance with KEPHIS and international organic standards verified for every batch.",
             "matrix": {
                 "EC": "2.5-4.0 mS/cm",
                 "NPK": "Batch Verified",
@@ -348,10 +348,316 @@
                 "description": "Fully registered and approved for distribution in Kenya, meeting all phyto-sanitary requirements for safety and efficacy."
             },
             {
-                "title": "ECOCERT Inputs",
+                "title": "Organic Inputs",
                 "subtitle": "Organic Agriculture Standards",
                 "description": "Formulated in accordance with international organic farming regulations, suitable for use in organic crop production."
             }
         ]
-    }
+    },
+    "events": [
+        {
+            "id": 1,
+            "title": "Highland Tea Symposium",
+            "date": "November 2025",
+            "location": "Kericho, Kenya",
+            "image": "TEA LEAVES PLANTATION - 5 - 19.11.2025.jpg",
+            "description": "Showcasing the impact of precision bio-science on high-altitude tea plantations."
+        },
+        {
+            "id": 2,
+            "title": "Avocado Growth Workshop",
+            "date": "October 2025",
+            "location": "Murang'a, Kenya",
+            "image": "AVOCADO TREE FLOWERING.jpg",
+            "description": "Interactive session on maximizing flower set and minimizing fruit abortion in Hass avocados."
+        },
+        {
+            "id": 3,
+            "title": "Cereal Productivity Field Day",
+            "date": "September 2025",
+            "location": "Uasin Gishu, Kenya",
+            "image": "MAIZE TUSSLING STAGE 2.jpg",
+            "description": "Demonstrating uniform cob set and structural integrity in large-scale maize production."
+        },
+        {
+            "id": 4,
+            "title": "Soil Health Testing Campaign",
+            "date": "December 2025",
+            "location": "National Coverage",
+            "image": "1000145607.jpg",
+            "description": "Launching our nationwide soil pathology and nutrient analysis services for vibrant crop growth."
+        },
+        {
+            "id": 5,
+            "title": "Smallholder Training Intensive",
+            "date": "November 2025",
+            "location": "Kiambu, Kenya",
+            "image": "1000234208.jpg",
+            "description": "On-site educational workshop empowering local farmers with modern agronomic protocols."
+        },
+        {
+            "id": 6,
+            "title": "Annual Strategic Review",
+            "date": "January 2026",
+            "location": "Headquarters, Nairobi",
+            "image": "1000235795.jpg",
+            "description": "The BioVitam technical core team aligning 2026 roadmaps for regional agricultural transformation."
+        },
+        {
+            "id": 7,
+            "title": "Bungoma Outreach Forum",
+            "date": "October 2025",
+            "location": "Bungoma, Kenya",
+            "image": "1000236954.jpg",
+            "description": "Direct engagement with community leaders to integrate bio-stimulants into traditional cycles."
+        },
+        {
+            "id": 8,
+            "title": "Canopy Education Series",
+            "date": "September 2025",
+            "location": "Meru, Kenya",
+            "image": "1000236966.jpg",
+            "description": "Outdoor classroom sessions focusing on pest resilience and nutrient uptake during the rainy season."
+        },
+        {
+            "id": 9,
+            "title": "Pineapple Quality Expo",
+            "date": "August 2025",
+            "location": "Thika, Kenya",
+            "image": "PINEAPPLES MATURE RIPE - 2 (1).jpg",
+            "description": "Focusing on Brix level enhancement and uniform ripening for export-grade pineapples."
+        },
+        {
+            "id": 10,
+            "title": "Floriculture Excellence Summit",
+            "date": "July 2025",
+            "location": "Naivasha, Kenya",
+            "image": "ROSE FLOWERS - 1.jpeg",
+            "description": "Specialized protocols for stem strength and petal intensity in export roses."
+        },
+        {
+            "id": 11,
+            "title": "Agronomy Training Board",
+            "date": "August 2025",
+            "location": "Nakuru, Kenya",
+            "image": "1000238427.jpg",
+            "description": "Reviewing crop diagnostic techniques with our regional agronomy leads."
+        },
+        {
+            "id": 12,
+            "title": "Regional Managers Briefing",
+            "date": "February 2026",
+            "location": "Nairobi, Kenya",
+            "image": "1000239598.jpg",
+            "description": "Coordinating distribution logistics for the upcoming planting season across East Africa."
+        },
+        {
+            "id": 13,
+            "title": "Community Seedling Drive",
+            "date": "March 2026",
+            "location": "Vihiga, Kenya",
+            "image": "1000244247.jpg",
+            "description": "Distributing high-vigor seedlings treated with BioVitam starter protocols to local cooperatives."
+        },
+        {
+            "id": 14,
+            "title": "Technical Lab Certification",
+            "date": "April 2026",
+            "location": "Quality Control Lab",
+            "image": "1000246393.jpg",
+            "description": "Our researchers undergoing final audits for ISO-compliant diagnostic procedures."
+        },
+        {
+            "id": 15,
+            "title": "Coffee Early Fruiting Stage",
+            "date": "March 2026",
+            "location": "Nyeri, Kenya",
+            "image": "COFFEE PINHEAD.png",
+            "description": "Precision nutrient management during the critical pinhead retention stage for Arabica coffee."
+        },
+        {
+            "id": 16,
+            "title": "Macadamia Bloom Synchronization",
+            "date": "February 2026",
+            "location": "Embu, Kenya",
+            "image": "MACADAMIA NUTS 5 - FLOWERING.jpg",
+            "description": "Improving commercial nut set and synchronization in large-scale macadamia orchards."
+        },
+        {
+            "id": 17,
+            "title": "Pixie Citrus Flowering Protocol",
+            "date": "January 2026",
+            "location": "Makueni, Kenya",
+            "image": "PIXIE CITRUS FRUIT TREE FLOWERING.jpg",
+            "description": "Specialized bio-stimulant protocols for high-yield, seedless pixie orange production."
+        },
+        {
+            "id": 18,
+            "title": "Coastal Farmers Dialogue",
+            "date": "May 2026",
+            "location": "Mombasa, Kenya",
+            "image": "1000257808.jpg",
+            "description": "Addressing soil salinity and technical challenges in coastal horticultural clusters."
+        },
+        {
+            "id": 19,
+            "title": "Executive Leadership Summit",
+            "date": "June 2026",
+            "location": "BioVitam Plaza",
+            "image": "1000255964.jpg",
+            "description": "Defining the corporate vision for sustainable Agri-Intelligence across the continent."
+        },
+        {
+            "id": 20,
+            "title": "Apple Orchard Flowering",
+            "date": "April 2025",
+            "location": "Nanyuki, Kenya",
+            "image": "APPLE TREE FLOWERING.jpg",
+            "description": "Chilling requirement management and flower-set enhancement for temperate fruits in Kenya."
+        },
+        {
+            "id": 21,
+            "title": "Potato Canopy Optimization",
+            "date": "December 2025",
+            "location": "Nyandarua, Kenya",
+            "image": "POTATOES VEGETATIVE STAGE.jpg",
+            "description": "Building a robust photosynthetic canopy to drive tuber size and uniformity in Irish potatoes."
+        },
+        {
+            "id": 22,
+            "title": "Legume Productivity Showcase",
+            "date": "November 2025",
+            "location": "Machakos, Kenya",
+            "image": "LEGUME BEAN PLANT FLOWERING.jpg",
+            "description": "Enhancing nitrogen fixation and flower formation in dryland bean varieties."
+        },
+        {
+            "id": 23,
+            "title": "Coastal Citrus Excellence",
+            "date": "October 2025",
+            "location": "Kilifi, Kenya",
+            "image": "CITRUS FRUITS GREEN FRUITS ON TREES.jpg",
+            "description": "Managing tree health and fruit development in high-humidity coastal environments."
+        },
+        {
+            "id": 24,
+            "title": "Cereal Maturation Phase Expo",
+            "date": "September 2025",
+            "location": "Narok, Kenya",
+            "image": "RICE, WHEAT, BARLEY RIPENING STAGE.jpg",
+            "description": "Ensuring peak grain weight and nutritional profile during the final maturation stage."
+        },
+        {
+            "id": 25,
+            "title": "Rice Intensification Phase",
+            "date": "August 2025",
+            "location": "Ahero, Kenya",
+            "image": "TRANSPLANTING RICE.jpg",
+            "description": "Modern transplanting techniques for higher yield and water efficiency in heavy clay soils."
+        },
+        {
+            "id": 26,
+            "title": "Macadamia Maturity Forum",
+            "date": "July 2025",
+            "location": "Meru, Kenya",
+            "image": "MACADAMIA NUTS ON TREE 3.jpg",
+            "description": "Monitoring nut development for optimal oil content and kernel grade in commercial orchards."
+        },
+        {
+            "id": 27,
+            "title": "Onion Bulbing Intensive",
+            "date": "June 2025",
+            "location": "Isinya, Kenya",
+            "image": "RED ONION BULBING PHOTO -3.jpg",
+            "description": "Nutrient protocols to ensure uniform bulb sizing and intense purple coloration."
+        },
+        {
+            "id": 28,
+            "title": "Fodder & Legume Health Day",
+            "date": "May 2025",
+            "location": "Bomet, Kenya",
+            "image": "LEGUMES - VEGETATIVE STAGE.jpg",
+            "description": "Supporting early-stage vegetative vigor for high-protein fodder and bean production."
+        },
+        {
+            "id": 29,
+            "title": "Seedling Nursery Audit",
+            "date": "June 2026",
+            "location": "Eldoret, Kenya",
+            "image": "1000239596.jpg",
+            "description": "Inspecting germination rates and structural vigor in our regional seedling propagation centers."
+        },
+        {
+            "id": 30,
+            "title": "Agricultural Policy Briefing",
+            "date": "July 2026",
+            "location": "Nairobi, Kenya",
+            "image": "1000239965.jpg",
+            "description": "Dialogue with policy markers on incentivizing organic fertilizer adoption for national food security."
+        },
+        {
+            "id": 31,
+            "title": "Distribution Channel Expo",
+            "date": "August 2026",
+            "location": "BioVitam Logistics Center",
+            "image": "1000239968.jpg",
+            "description": "Showcasing our streamlined supply chain from production to the smallholder's gate."
+        },
+        {
+            "id": 32,
+            "title": "Horticultural Outreach",
+            "date": "September 2026",
+            "location": "Narok, Kenya",
+            "image": "1000246272.jpg",
+            "description": "Field outreach programs targeting high-value horticultural crops in the Rift Valley."
+        },
+        {
+            "id": 33,
+            "title": "Commercial Farmer Seminar",
+            "date": "October 2026",
+            "location": "Nanyuki, Kenya",
+            "image": "1000249336.jpg",
+            "description": "Technical seminar for large-scale farmers on maximizing return on investment with Bio-stimulants."
+        },
+        {
+            "id": 34,
+            "title": "Field Data Review",
+            "date": "November 2026",
+            "location": "Nairobi HQ",
+            "image": "1000255951.jpg",
+            "description": "Analyzing experimental yield data from our 2026 trial plots to refine 2027 formulations."
+        },
+        {
+            "id": 35,
+            "title": "Innovation Symposium",
+            "date": "December 2026",
+            "location": "Science Park",
+            "image": "1000257789.jpg",
+            "description": "Presenting our latest findings on microbial soil rejuvenation at the annual innovation symposium."
+        },
+        {
+            "id": 36,
+            "title": "HORTI-TEC Africa Expo",
+            "date": "January 2026",
+            "location": "KICC, Nairobi",
+            "image": "1000257804.jpg",
+            "description": "Representing the future of organic inputs at Africa's largest horticultural technology exhibition."
+        },
+        {
+            "id": 37,
+            "title": "Product Launch Gala",
+            "date": "February 2026",
+            "location": "Nairobi, Kenya",
+            "image": "1000257807.jpg",
+            "description": "Unveiling our 2026 professional-grade bio-stimulant line to our valued distributors and partners."
+        },
+        {
+            "id": 38,
+            "title": "Rice Pinnacle Initiation",
+            "date": "April 2025",
+            "location": "Mwea, Kenya",
+            "image": "RICE PINNACLE INITIATION STAGE.jpg",
+            "description": "Boosting panicle initiation and grain filling stages in irrigation schemes."
+        }
+    ]
 }

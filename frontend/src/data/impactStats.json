@@ -1,0 +1,286 @@
+{
+  "total_farms": 138,
+  "total_hectares": 4653.5,
+  "region_stats": [
+    {
+      "region": "REGION",
+      "farm_count": 1,
+      "hectares": 0
+    },
+    {
+      "region": "Nanyuki",
+      "farm_count": 19,
+      "hectares": 566.0
+    },
+    {
+      "region": "Thika",
+      "farm_count": 12,
+      "hectares": 342.0
+    },
+    {
+      "region": "Rumuruti",
+      "farm_count": 5,
+      "hectares": 247.0
+    },
+    {
+      "region": "Gilgil",
+      "farm_count": 2,
+      "hectares": 55.0
+    },
+    {
+      "region": "Naivasha",
+      "farm_count": 27,
+      "hectares": 1065.0
+    },
+    {
+      "region": "Limuru",
+      "farm_count": 6,
+      "hectares": 158.5
+    },
+    {
+      "region": "Nakuru",
+      "farm_count": 27,
+      "hectares": 933.0
+    },
+    {
+      "region": "Nyahururu Olkalau",
+      "farm_count": 4,
+      "hectares": 107.0
+    },
+    {
+      "region": "Kericho - Londiani",
+      "farm_count": 1,
+      "hectares": 50.0
+    },
+    {
+      "region": "Kitengela",
+      "farm_count": 2,
+      "hectares": 165.0
+    },
+    {
+      "region": "Embu",
+      "farm_count": 1,
+      "hectares": 30.0
+    },
+    {
+      "region": "Nyahururu Kinangop",
+      "farm_count": 1,
+      "hectares": 20.0
+    },
+    {
+      "region": "Isinya",
+      "farm_count": 5,
+      "hectares": 149.0
+    },
+    {
+      "region": "Karen",
+      "farm_count": 2,
+      "hectares": 18.0
+    },
+    {
+      "region": "Nakuru Ravine",
+      "farm_count": 1,
+      "hectares": 65.0
+    },
+    {
+      "region": "Kiambu",
+      "farm_count": 1,
+      "hectares": 12.0
+    },
+    {
+      "region": "Timau",
+      "farm_count": 5,
+      "hectares": 202.0
+    },
+    {
+      "region": "Eldoret",
+      "farm_count": 5,
+      "hectares": 161.0
+    },
+    {
+      "region": "Kitale",
+      "farm_count": 2,
+      "hectares": 66.0
+    },
+    {
+      "region": "Eldoret - Ziwa",
+      "farm_count": 1,
+      "hectares": 45.0
+    },
+    {
+      "region": "Ruiru",
+      "farm_count": 2,
+      "hectares": 69.0
+    },
+    {
+      "region": "Nakuru Solai",
+      "farm_count": 1,
+      "hectares": 28.0
+    },
+    {
+      "region": "Subukia",
+      "farm_count": 1,
+      "hectares": 40.0
+    },
+    {
+      "region": "Olkalao",
+      "farm_count": 1,
+      "hectares": 24.0
+    },
+    {
+      "region": "Athi River",
+      "farm_count": 1,
+      "hectares": 18.0
+    },
+    {
+      "region": "Nakuru Subukia",
+      "farm_count": 1,
+      "hectares": 18.0
+    },
+    {
+      "region": "0.35",
+      "farm_count": 1,
+      "hectares": 0
+    }
+  ],
+  "client_list": [
+    "FARM",
+    "AAA Chestnut Farm",
+    "AAA Chui Farm",
+    "AAA Hippo(Thika)",
+    "AAA Simba",
+    "Africalla Lilies Ltd",
+    "Aquila Flowers",
+    "Beauty line Ltd",
+    "Bigot Flowers",
+    "Bilashaka Flowers",
+    "Black Tulip Batian Flowers",
+    "Black Tulip Black Petals Ltd",
+    "Black Tulip Eco Roses",
+    "Black Tulip Golden Tulip",
+    "Black Tulip Laurel",
+    "Black Tulip Lemotit",
+    "Black Tulip Sunfloritech Blue Sky",
+    "Black Tulip Tulaga",
+    "Black Tulip Tulaga",
+    "Black Tulip Utee Ltd",
+    "Bloomigdale",
+    "Blooming Africa ltd",
+    "Carnation Plants/ Exotic/ Penina Flowers",
+    "Colour Crops Nanyuki",
+    "Credible Blooms",
+    "EAGA Mahee",
+    "EAGA Mwanzi",
+    "EAGA Kabuku",
+    "EAGA Shalimar Flowers",
+    "Enkasiti Flowers",
+    "Equinox Horticulture",
+    "Fides K Ltd",
+    "Flamingo Horticulture",
+    "Flamingo Ibis",
+    "Flamingo Kingfisher",
+    "Flamingo Siraji",
+    "Flora Delight",
+    "Flora Ola",
+    "Fontana Akina",
+    "Fontana Alisha Mau Flora",
+    "Fontana Ayana",
+    "Fontana Big Flowers",
+    "Freshgold Ltd.",
+    "Gatoka Flowers",
+    "Hanna Roses",
+    "Harvest Flowers",
+    "Heritage Flowers",
+    "Imani Flowers",
+    "Interplant Roses",
+    "Isinya Porini Roses",
+    "Isinya Roses",
+    "Karen Roses",
+    "Karen Roses Ravine",
+    "Kariki Carzan KS",
+    "Kariki Carzan MR",
+    "Kariki Carzan ST",
+    "Kariki Hamwe ltd",
+    "Kariki Kudenga",
+    "Kariki Livewire",
+    "Kariki Nanyuki Bondet",
+    "Kariki- Thika",
+    "Kenfloraa Ltd.",
+    "Kentalya",
+    "Kenya Cuttings",
+    "Kikwetu Flowers",
+    "Kisima",
+    "Kordes Roses",
+    "Lathyflora/Fairy Flowers",
+    "Lauren International",
+    "Lobelia Roses",
+    "Lolomarik",
+    "Maridadi Flowers",
+    "Maua Agritech",
+    "Megaspin Florenza",
+    "Megaspin Roseto Flowers",
+    "Megaspin Sierra Roses",
+    "Mona Flowers",
+    "Mt. Elgon Flowers",
+    "Mzurrie Maji Mazuri Ltd",
+    "Mzurrie Molo River Roses",
+    "Mzurrie Winchester Bahati",
+    "Nini Ltd",
+    "Olnjorwa/ Mbegu Farm",
+    "Oserian Flowers",
+    "Panda flowers",
+    "Panocal International",
+    "Penta Flowers",
+    "PJ Dave Flora",
+    "PJ Dave Flowers",
+    "Pj Dave Timau",
+    "Primarosa Zuri",
+    "Rainforest Farmlands",
+    "Redlands Ltd - Kamiti",
+    "Redlands Ltd - Ruiru",
+    "Redwings Ltd",
+    "Rimi Flora",
+    "Royal Deruiters",
+    "Savanna International",
+    "Shades Horticulture",
+    "Sian Agriflora Ltd",
+    "Sian Equator Flowers",
+    "Sian Maasai Flowers",
+    "Sian Sololo Horticulture",
+    "Simbi Roses",
+    "Sirgoek Flowers",
+    "Solai Roses",
+    "Subati Flowers- Naivasha",
+    "Subati Flowers Subukia",
+    "Subati Flowers- Suera",
+    "Tambuzi Burguret",
+    "Tambuzi Pendekeza",
+    "Timaflor Ltd",
+    "Tosti Bliss Flora",
+    "Tosti Buds And Blooms",
+    "Tosti Dale Flora",
+    "Transebel Branan",
+    "Tropiflora Black Tulip",
+    "Uhuru Flowers",
+    "United Selections",
+    "Valentine Growers",
+    "Vankleef",
+    "Vegpro Bemack",
+    "Vegpro Galaxy Flowers",
+    "Vegpro Gorge farm",
+    "Vegpro Kongoni",
+    "Vegpro Kongoni Star Flowers",
+    "Vegpro Liki",
+    "Vegpro Longonot - Veg",
+    "Vegpro Timau",
+    "Waridi",
+    "Wildfire Flowers",
+    "Wilfey Flowers",
+    "Windsor",
+    "Xflora Africa Blooms",
+    "Xflora Sonjami Springfields",
+    "Xflora Xpressions",
+    "Zena Roses Sosiani",
+    "Price:"
+  ]
+}

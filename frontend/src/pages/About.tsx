@@ -5,14 +5,17 @@ import { SEO, updatePageMeta } from '../utils/seo'
 import { OptimizedImage } from '../components/ui/OptimizedImage'
 import { Lightbox } from '../components/ui/Lightbox'
 import AboutIntro from '../assets/profile/1.jpg'
-import ProcessImg from '../assets/profile/6.jpg'
+import OrgStructureImg from '../assets/profile/6.jpg'
 import HistoryImg from '../assets/profile/10.jpg'
+import TeamImg from '../assets/profile/the team.jpg'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { COMPANY_DATA, TIMELINE_DATA } from '../data/seed'
 import { api } from '../utils/api'
 import { CompanyData } from '../types'
 
 export default function About() {
+  const navigate = useNavigate()
   const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' })
   const [company, setCompany] = useState<CompanyData>(COMPANY_DATA as CompanyData)
   const [timeline, setTimeline] = useState(TIMELINE_DATA)
@@ -35,6 +38,7 @@ export default function About() {
         if (companyData && Object.keys(companyData).length > 0) setCompany(companyData);
         if (timelineData && timelineData.length > 0) setTimeline(timelineData);
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.warn('API Fetch failed, using fallback data.', err);
       } finally {
         setIsLoading(false);
@@ -53,17 +57,22 @@ export default function About() {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-biovitam-light dark:bg-background">
-      {/* Hero Section - Visual 1.jpg */}
-      <section className="relative py-24 bg-white dark:bg-card overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div className="pt-16 min-h-screen bg-biovitam-light dark:bg-background">
+      {/* Hero Section - Visual 1.jpg - "Filled" Immersive Look */}
+      <section className="section-framed relative py-8 md:py-12 bg-biovitam-dark">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-biovitam-dark via-biovitam-dark/90 to-biovitam-primary/20" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-biovitam-primary/10 rounded-full blur-[120px] -mr-48 -mt-48" />
+        </div>
+
+        <div className="content-container relative z-10 text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              className="relative rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white dark:border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-500"
+              className="relative rounded-organic-lg overflow-hidden shadow-2xl border-4 border-white/20 transform rotate-1 hover:rotate-0 transition-all duration-500"
             >
-              <div className="relative h-96 lg:h-full rounded-organic-lg overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(AboutIntro, "Inside Our Facility")}>
+              <div className="relative h-72 sm:h-96 lg:h-[500px] rounded-organic-lg overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(AboutIntro, "Inside Our Facility")}>
                 <OptimizedImage
                   src={AboutIntro}
                   alt="Inside Our Facility"
@@ -71,22 +80,22 @@ export default function About() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/40 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/80 to-transparent flex items-end p-8">
-                  <p className="text-white font-heading font-bold text-xl">Dedicated to Soil Health</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-biovitam-dark/80 to-transparent flex items-end p-6 md:p-8">
+                  <p className="text-white font-heading font-bold text-lg md:text-xl">Inside BioVitam Labs</p>
                 </div>
               </div>
             </motion.div>
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-1.5 rounded-full bg-biovitam-olive text-white font-bold text-sm tracking-wide">
+            <div className="space-y-6 md:space-y-8">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-biovitam-secondary text-biovitam-dark font-black text-[10px] md:text-xs tracking-[0.2em] uppercase">
                 OUR MISSION
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-biovitam-dark dark:text-white leading-tight">
-                Empowering Farmers with <span className="text-biovitam-olive">Sustainable Solutions</span>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tighter">
+                Empowering Farmers with <span className="text-biovitam-secondary">Sustainable Solutions</span>
               </h1>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
-                "{company.tagline}"
+              <p className="text-lg md:text-2xl text-white font-black italic border-l-4 border-biovitam-secondary pl-6 py-2">
+                &quot;{company.tagline}&quot;
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-base md:text-xl text-white/90 leading-relaxed font-bold">
                 {company.about.description}
               </p>
             </div>
@@ -95,8 +104,8 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-biovitam-light dark:bg-background/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="section-framed py-8 bg-biovitam-light dark:bg-background/50">
+        <div className="content-container grid grid-cols-1 md:grid-cols-3 gap-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,14 +154,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* Process Section - Visual 6.jpg */}
-      <section className="py-24 bg-white dark:bg-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Organization Structure Section */}
+      <section className="section-framed py-8 bg-white dark:bg-card">
+        <div className="content-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="order-2 lg:order-1 space-y-8">
-              <h2 className="text-3xl font-bold text-biovitam-dark dark:text-white">Our Manufacturing Process</h2>
+              <h2 className="text-3xl font-bold text-biovitam-dark dark:text-white">Organization Structure</h2>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                {company.qualityAssurance.production}
+                Our operations are streamlined to ensure efficient production and nationwide distribution, backed by technical excellence.
               </p>
               <ul className="space-y-4">
                 {company.about.objectives.slice(3).map((item: string, i: number) => (
@@ -169,10 +178,10 @@ export default function About() {
               viewport={{ once: true }}
               className="order-1 lg:order-2 rounded-organic-lg overflow-hidden shadow-xl"
             >
-              <div className="relative h-80 lg:h-full rounded-organic overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(ProcessImg, "Quality Control")}>
+              <div className="relative h-80 lg:h-full rounded-organic overflow-hidden group cursor-zoom-in" onClick={() => openLightbox(OrgStructureImg, "Organization Structure")}>
                 <OptimizedImage
-                  src={ProcessImg}
-                  alt="Quality Control"
+                  src={OrgStructureImg}
+                  alt="Organization Structure"
                   className="w-full h-full transform group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
@@ -181,28 +190,108 @@ export default function About() {
         </div>
       </section>
 
-      {/* Supply Capability Section (10.jpg) */}
-      <section id="supply-capability" className="py-24 bg-biovitam-dark text-white relative overflow-hidden">
+      {/* The Team Section - Upgraded Immersive Look */}
+      <section className="section-framed relative py-12 md:py-20 group/team">
+        <div className="absolute inset-0 z-0">
+          <OptimizedImage
+            src={TeamImg}
+            alt="BioVitam Team Background"
+            className="w-full h-full object-cover brightness-[0.2] blur-[2px] transition-transform duration-[5000ms] group-hover/team:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-biovitam-dark/80 via-transparent to-biovitam-dark/90" />
+        </div>
+
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8 perspective-1000">
+            <Link to="/events" className="inline-block group relative">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="absolute -inset-4 bg-white/40 dark:bg-white/5 backdrop-blur-md rounded-2xl border border-white/40 dark:border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 shadow-xl"
+              />
+              <motion.h2
+                whileHover={{
+                  rotateX: 5,
+                  rotateY: -5,
+                  z: 20
+                }}
+                className="text-3xl sm:text-5xl md:text-7xl font-black mb-4 select-none cursor-pointer transition-all duration-300 px-4 sm:px-8 py-2 sm:py-4"
+                style={{
+                  color: 'var(--biovitam-dark)',
+                  textShadow: '0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 4px 6px rgba(0,0,0,0.1)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                THE <span className="text-biovitam-secondary" style={{ textShadow: 'inherit' }}>TEAM</span>
+              </motion.h2>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-biovitam-secondary font-bold tracking-[0.3em] uppercase text-xs mt-2 group-hover:tracking-[0.4em] transition-all"
+              >
+                Explore our field events
+              </motion.div>
+            </Link>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              Our professional team of experts and agronomists dedicated to transforming African agriculture.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.5)] bg-white/5 backdrop-blur-2xl border border-white/10 p-4 md:p-12 cursor-zoom-in"
+            onClick={() => openLightbox(TeamImg, "The BioVitam Team")}
+          >
+            <div className="relative rounded-[2rem] overflow-hidden">
+              <OptimizedImage
+                src={TeamImg}
+                alt="The BioVitam Team"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+              {[
+                { title: "Corporate Leadership", desc: "Managing Director & Head of Marketing directing nationwide operations.", color: "biovitam-primary" },
+                { title: "Operations Management", desc: "Coordinating specialized sectors in Coffee, Horticulture, and Floriculture.", color: "biovitam-secondary" },
+                { title: "Technical Excellence", desc: "Led by our Chief Agronomist and nationwide technical & extension staff.", color: "biovitam-olive" },
+                { title: "Regional Presence", desc: "BDAs and Agronomists ensuring localized support across all counties.", color: "blue-500" }
+              ].map((member, i) => (
+                <div key={i} className="p-8 bg-white/5 backdrop-blur-md rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors">
+                  <h4 className={`font-black text-${member.color} mb-3 uppercase tracking-tighter text-lg`}>{member.title}</h4>
+                  <p className="text-base text-white font-bold leading-relaxed">{member.desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="supply-capability" className="py-8 bg-biovitam-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img src={HistoryImg} alt="Supply Capability Background" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h2 className="text-4xl font-bold mb-6">Unmatched Supply Capability</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">Unmatched Supply Capability</h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               With our advanced production facilities and robust logistics network, we guarantee consistent availability for large-scale operations.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
               <div>
-                <h4 className="text-biovitam-secondary font-bold text-lg mb-2">Production Capacity</h4>
-                <p className="text-3xl font-bold">50,000+ <span className="text-sm font-normal text-gray-400">Liters/Month</span></p>
+                <h4 className="text-biovitam-secondary font-black text-xl mb-2">Production Capacity</h4>
+                <p className="text-4xl font-black">50,000+ <span className="text-sm font-black text-white/70">Liters/Month</span></p>
               </div>
               <div>
-                <h4 className="text-biovitam-secondary font-bold text-lg mb-2">Delivery Network</h4>
-                <p className="text-3xl font-bold">Nationwide <span className="text-sm font-normal text-gray-400">coverage</span></p>
+                <h4 className="text-biovitam-secondary font-black text-xl mb-2">Delivery Network</h4>
+                <p className="text-4xl font-black text-white">Nationwide <span className="text-sm font-black text-white/70">coverage</span></p>
               </div>
             </div>
-            <button className="bg-biovitam-secondary hover:bg-white hover:text-biovitam-secondary text-biovitam-dark px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-biovitam-secondary/20">
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-biovitam-secondary hover:bg-white hover:text-biovitam-secondary text-biovitam-dark px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-biovitam-secondary/20"
+            >
               Partner With Us
             </button>
           </div>
@@ -211,10 +300,10 @@ export default function About() {
 
 
       {/* Company History - Visual 10.jpg (Reused/Context) */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-background relative overflow-hidden">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-background relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative z-10">
           <motion.h2
-            className="text-4xl font-bold text-biovitam-dark dark:text-white mb-16 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-biovitam-dark dark:text-white mb-6 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -257,10 +346,10 @@ export default function About() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 dark:bg-background/80">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 dark:bg-background/80">
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="text-4xl font-bold text-biovitam-dark dark:text-white mb-16 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-biovitam-dark dark:text-white mb-6 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -269,18 +358,18 @@ export default function About() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {company.certifications?.map((cert: any, idx: number) => (
+            {company.certifications?.map((cert: any, idx: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
               <motion.div
                 key={cert.name}
-                className="p-10 bg-white dark:bg-card rounded-organic border border-gray-100 dark:border-white/10 shadow-lg flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300"
+                className="p-6 sm:p-10 bg-white dark:bg-card rounded-organic border border-gray-100 dark:border-white/10 shadow-lg flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <div className="text-7xl mb-6 filter drop-shadow-sm">{cert.logo}</div>
-                <h3 className="text-2xl font-bold text-biovitam-dark dark:text-white mb-2">{cert.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400 font-medium">{cert.description}</p>
+                <div className="text-5xl sm:text-7xl mb-6 filter drop-shadow-sm">{cert.logo}</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-biovitam-dark dark:text-white mb-2">{cert.name}</h3>
+                <p className="text-sm sm:text-gray-600 dark:text-gray-400 font-medium">{cert.description}</p>
               </motion.div>
             ))}
           </div>
@@ -308,6 +397,6 @@ export default function About() {
         alt={lightbox.alt}
         onClose={() => setLightbox(prev => ({ ...prev, isOpen: false }))}
       />
-    </div>
+    </div >
   )
 }

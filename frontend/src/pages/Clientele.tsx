@@ -4,16 +4,14 @@ import { updatePageMeta } from '../utils/seo'
 import { ChevronLeft, ChevronRight, Quote, ZoomIn } from 'lucide-react'
 import { Lightbox } from '../components/ui/Lightbox'
 
-// @ts-ignore
 import ClientImg1 from '../assets/profile/7.jpg'
-// @ts-ignore
 import ClientImg2 from '../assets/profile/8.jpg'
 
 import { CLIENTELE_DATA } from '../data/seed'
 import { api } from '../utils/api'
 
 export default function Clientele() {
-    const [testimonials, setTestimonials] = useState<any[]>([])
+    const [testimonials, setTestimonials] = useState<any[]>([]) // eslint-disable-line @typescript-eslint/no-explicit-any
     const [currentIndex, setCurrentIndex] = useState(0)
     const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' })
     const [isLoading, setIsLoading] = useState(true)
@@ -28,10 +26,11 @@ export default function Clientele() {
         const fetchClientele = async () => {
             try {
                 const data = await api.getClientele()
+                const clientImages = [ClientImg1, ClientImg2];
                 if (data && data.length > 0) {
-                    const mapped = data.map((c: any) => ({
+                    const mapped = data.map((c: any, index: number) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
                         id: c.id,
-                        image: c.id % 2 === 0 ? ClientImg2 : ClientImg1,
+                        image: clientImages[index % clientImages.length],
                         name: c.name,
                         role: c.category,
                         quote: c.feedback,
@@ -39,9 +38,9 @@ export default function Clientele() {
                     }))
                     setTestimonials(mapped)
                 } else {
-                    setTestimonials(CLIENTELE_DATA.map(c => ({
+                    setTestimonials(CLIENTELE_DATA.map((c, index) => ({
                         id: c.id,
-                        image: c.id % 2 === 0 ? ClientImg2 : ClientImg1,
+                        image: clientImages[index % clientImages.length],
                         name: c.name,
                         role: c.category,
                         quote: c.feedback,
@@ -49,10 +48,12 @@ export default function Clientele() {
                     })))
                 }
             } catch (err) {
+                // eslint-disable-next-line no-console
                 console.warn('Failed to fetch clientele, using fallback.', err)
-                setTestimonials(CLIENTELE_DATA.map(c => ({
+                const clientImages = [ClientImg1, ClientImg2];
+                setTestimonials(CLIENTELE_DATA.map((c, index) => ({
                     id: c.id,
-                    image: c.id % 2 === 0 ? ClientImg2 : ClientImg1,
+                    image: clientImages[index % clientImages.length],
                     name: c.name,
                     role: c.category,
                     quote: c.feedback,
@@ -105,7 +106,7 @@ export default function Clientele() {
                         Our Esteemed <span className="text-biovitam-olive">Clientele</span>
                     </motion.h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Trusted by the region's leading growers to deliver results that matter.
+                        Trusted by the region&apos;s leading growers to deliver results that matter.
                     </p>
                 </div>
 
@@ -137,7 +138,7 @@ export default function Clientele() {
                                 <h2 className="text-3xl md:text-5xl font-bold mb-4">{testimonials[currentIndex].name}</h2>
                                 <p className="text-xl text-biovitam-secondary font-medium mb-8 uppercase tracking-widest">{testimonials[currentIndex].role} — {testimonials[currentIndex].location}</p>
                                 <p className="text-xl md:text-2xl font-light italic leading-relaxed max-w-3xl">
-                                    "{testimonials[currentIndex].quote}"
+                                    &quot;{testimonials[currentIndex].quote}&quot;
                                 </p>
                             </div>
                         </motion.div>

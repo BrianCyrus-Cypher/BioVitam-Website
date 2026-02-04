@@ -1,20 +1,29 @@
-# BioVitam - Organic Agriculture Solutions
+# BioVitam Website
 
 ## Description
-BioVitam is a premium, data-driven web platform designed for Bio-Organic fertilizers. It bridges the gap between sustainable farming and high-yield commercial agriculture through scientific innovation and digital accessibility.
+BioVitam is a high-performance, cinematic web platform designed for a leading agricultural technology company. The site features an interactive 3D event gallery, a dynamic yield estimator, and a robust administrative suite for story management.
+
+## Value Proposition
+BioVitam bridges the gap between complex agronomic science and accessible digital engagement. By combining high-fidelity visuals with data-driven yield estimations, the platform:
+- **Educates** farmers on the ROI of organic inputs.
+- **Showcases** real-world success stories through immersive galleries.
+- **Empowers** decision-making with transparent product data and usage protocols.
+
+## Developer & Credits
+**Lead Developer:** Brian Mwangi Ngatia
+*Engineered for maximum performance, accessibility, and agronomic impact.*
 
 ## Features
-- **Dynamic Product Catalog**: Detailed bio-fortified organic fertilizer data served from a central API.
-- **Interactive Manufacturing Journey**: A technical deep-dive into the bio-fermentation process with step-by-step visualizations.
-- **Modern Performance**: Optimized asset loading using a custom `OptimizedImage` component, lazy loading, and code splitting.
-- **Dual-Channel Communication**: Seamless contact via integrated email forms and WhatsApp redirects.
-- **Advanced Branding**: Premium aesthetic with glassmorphism, responsive typography, and spring-based animations.
+- **Cinematic Event Gallery**: 38+ field stories with Ken Burns zoom effects and 3D parallax transitions.
+- **Auto-Play Engine**: A continuous "playing" experience that cycles through global agricultural impact stories.
+- **Admin Command Center**: Secure suite for real-time content management, asset uploads (via Cloudinary), and story reordering.
+- **Yield Growth Estimator**: Dynamic calculation engine for agricultural ROI and output projections.
+- **Performance Optimized**: Lazy-loaded assets, optimized webp delivery, sub-second transitions, and mobile-first responsive design.
 
 ## Tech Stack
-- **Frontend**: Vite, React 18, TypeScript, Framer Motion, Tailwind CSS, Lucide Icons.
-- **Backend**: Node.js, Express, Nodemailer, CORS, Helmet.
-- **Quality**: ESLint, Prettier, Husky, Lint-Staged.
-- **Monitoring**: Web Vitals performance tracking.
+- **Backend**: Node.js, Express, TypeScript, Winston (Logging), Sentry (Monitoring), JSON-based persistent storage.
+- **Frontend**: React 18, Vite, TypeScript, Framer Motion (Animations), Tailwind CSS, Axios.
+- **Cloud Assets**: Cloudinary for high-performance image optimization and delivery.
 
 ## Setup Instructions
 
@@ -24,7 +33,7 @@ BioVitam is a premium, data-driven web platform designed for Bio-Organic fertili
 
 ### Installation
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/BrianCyrus-Cypher/BioVitam-Website.git
 
 # Install backend dependencies
@@ -37,24 +46,32 @@ npm install
 ```
 
 ### Environment Variables
-Create `.env.local` files based on `.env.example` in both `frontend` and `backend` directories.
+Create a `.env` file in the `backend/` directory:
+```env
+PORT=5000
+ADMIN_SECRET_KEY=your_secure_key
+CLOUDINARY_CLOUD_NAME=your_name
+CLOUDINARY_API_KEY=your_key
+CLOUDINARY_API_SECRET=your_secret
+```
 
 ### Running Locally
 ```bash
-# Start both servers (root directory script)
-./start-dev.sh
+# Start Backend
+cd backend
+npm start
 
-# Or separately:
-# Backend
-cd backend && npm run dev
-
-# Frontend
-cd frontend && npm run dev
+# Start Frontend
+cd ../frontend
+npm run dev
 ```
 
 ## Documentation
-- [API Documentation](./API.md)
-- [Standards Implementation](./c:/Users/Cyphrian/.gemini/antigravity/brain/83183e5d-a276-444e-899c-6d5fd4a106a2/standards_implementation_plan.md)
+- [API Documentation](./API.md): Detailed endpoint information.
+- [Technical Documentation](./TECHNICAL_DOCS.md): Architecture, tech stack, and deep-dive details.
+
+## Contributing
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for local development guidelines.
 
 ## License
 MIT

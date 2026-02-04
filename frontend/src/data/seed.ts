@@ -38,18 +38,18 @@ export const COMPANY_DATA = {
             description: "Kenya Plant Health Inspectorate Service"
         },
         {
-            body: "ECOCERT",
-            name: "ECOCERT Certified",
+            body: "Organic",
+            name: "Organic Certified",
             logo: "🌿",
-            description: "Organic Certification Authority"
+            description: "International Organic Standards"
         }
     ]
 }
 
 export const PRODUCT_DATA = [
     {
-        id: 'all-growth',
-        name: 'All Growth',
+        id: 'biovitam-all-growth',
+        name: 'BIOVITAM ALL GROWTH',
         formula: 'Premium Bio-Organic NPK',
         npk: '30-9-12',
         focus: 'Overall Vigor',
@@ -65,8 +65,8 @@ export const PRODUCT_DATA = [
         idealFor: ['Coffee', 'Tea', 'Maize', 'Vegetables']
     },
     {
-        id: 'strong-plant',
-        name: 'Strong Plant',
+        id: 'biovitam-strong-plant',
+        name: 'BIOVITAM STRONG PLANT',
         formula: 'High-Nitrogen Bio-Fortifier',
         npk: '10-25-15',
         focus: 'Structural Integrity',
@@ -82,8 +82,25 @@ export const PRODUCT_DATA = [
         idealFor: ['Roses', 'Horticulture', 'Fodder Crops']
     },
     {
-        id: 'bloom-booster',
-        name: 'Bloom Booster',
+        id: 'biovitam-calcium-nitrate',
+        name: 'BIOVITAM CALCIUM+BORON+ZINC FORMULA',
+        formula: 'Premium Micronutrient Blend',
+        npk: '20-4-6-3',
+        focus: 'Cell Strength & Immunity',
+        description: 'Premium blend of Calcium Nitrate, Magnesium Nitrate, Boron, and Zinc. Enhances cell wall strength and prevents physiological disorders.',
+        benefits: [
+            'Strengthens cell walls for better shelf life',
+            'Prevents physiological disorders (e.g., Blossom End Rot)',
+            'Improves calcium uptake in acidic soils',
+            'Enhances overall plant immune system'
+        ],
+        usage: 'Apply 1-1.5 tons per hectare as a supplement during peak growth.',
+        packaging: '25kg Bags',
+        idealFor: ['Greenhouse Crops', 'Berries', 'Orchards']
+    },
+    {
+        id: 'biovitam-flower-fruit',
+        name: 'BIOVITAM FLOWER & FRUIT',
         formula: 'High-Phosphate Yield Multiplier',
         npk: '15-10-45',
         focus: 'Reproductive Yields',
@@ -97,23 +114,6 @@ export const PRODUCT_DATA = [
         usage: 'Apply during flowering and fruit development at 1.5-2 tons per hectare.',
         packaging: '25kg Bags',
         idealFor: ['Fruit Trees', 'Tomatoes', 'Export Flowers']
-    },
-    {
-        id: 'calcium-nitrate',
-        name: 'Calcium Nitrate',
-        formula: 'Cell Strength Fortifier',
-        npk: '20-4-6:3',
-        focus: 'Cell Strength',
-        description: 'Enhances cell wall strength and nutrient balance. Essential for preventing diseases like blossom end rot.',
-        benefits: [
-            'Strengthens cell walls for better shelf life',
-            'Prevents physiological disorders (e.g., Blossom End Rot)',
-            'Improves calcium uptake in acidic soils',
-            'Enhances overall plant immune system'
-        ],
-        usage: 'Apply 1-1.5 tons per hectare as a supplement during peak growth.',
-        packaging: '25kg Bags',
-        idealFor: ['Greenhouse Crops', 'Berries', 'Orchards']
     }
 ]
 
@@ -156,7 +156,7 @@ export const TIMELINE_DATA = [
     { year: '2015', event: 'Founded as Nova Gardens Ltd' },
     { year: '2017', event: 'First biofertilizer formulation completed' },
     { year: '2019', event: 'KEPHIS certification achieved' },
-    { year: '2021', event: 'ECOCERT organic certification obtained' },
+    { year: '2021', event: 'International organic standards achieved' },
     { year: '2023', event: 'Expanded to regional distribution' },
     { year: '2024', event: 'Launched direct-to-farmer online platform' },
 ]

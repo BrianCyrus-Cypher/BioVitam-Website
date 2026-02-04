@@ -22,7 +22,7 @@ const Card = React.forwardRef<
           borderColor: "rgba(76, 175, 80, 0.4)"
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        {...(props as any)}
+        {...(props as any)} // eslint-disable-line @typescript-eslint/no-explicit-any
       />
     )
   }

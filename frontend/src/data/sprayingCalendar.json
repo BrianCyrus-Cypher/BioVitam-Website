@@ -1,0 +1,242 @@
+[
+  {
+    "name": "RICE",
+    "duration_of_application": "4 MONTHS",
+    "application_intervals": "14 DAYS",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "3rd Month",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "4th Month",
+        "formula": "Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "COFFEE",
+    "duration_of_application": "10 MONTHS",
+    "application_intervals": "14 DAYS",
+    "application_rate": "5.5KG/ACRE/YEAR",
+    "schedule_details": [
+      {
+        "stage": "December",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "January",
+        "formula": "Calcium Nitrate & Strong Plant"
+      },
+      {
+        "stage": "February",
+        "formula": "Calcium Nitrate & Strong Plant"
+      },
+      {
+        "stage": "March",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "April",
+        "formula": "Flower and Fruit"
+      },
+      {
+        "stage": "May",
+        "formula": "Flower and Fruit"
+      },
+      {
+        "stage": "July",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "August",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "September",
+        "formula": "Calcium Nitrate & Strong Plant"
+      },
+      {
+        "stage": "October",
+        "formula": "Flower and Fruit"
+      },
+      {
+        "stage": "November",
+        "formula": "Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "TOMATOES/WATER MELON",
+    "duration_of_application": "4 MONTHS",
+    "application_intervals": "WEEKLY",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month( Nursery)",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "2nd Month( 1st Week)-Transplant",
+        "formula": "Strong Plant & All Growth"
+      },
+      {
+        "stage": "2nd Month( 2nd Week)",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "2nd Month(3rd & 4th Week)",
+        "formula": "Calcium Nitrate & Flower and Fruit"
+      },
+      {
+        "stage": "3rd Month",
+        "formula": "Calcium Nitrate & Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "KALES/SPINACH & ALL LEAFY VEGETABLES",
+    "duration_of_application": "3 MONTHS",
+    "application_intervals": "WEEKLY",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month( Nursery)",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "2nd Month( 1st & 2nd Week)-Transplant",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month( 3rd & 4th Week)",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "2nd Month(3rd & 4th Week)",
+        "formula": "Calcium Nitrate & All Growth"
+      },
+      {
+        "stage": "3rd  Month",
+        "formula": "Calcium Nitrate & All Growth"
+      }
+    ]
+  },
+  {
+    "name": "CABBAGE",
+    "duration_of_application": "3 MONTHS",
+    "application_intervals": "WEEKLY",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month( Nursery)",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "2nd Month( 1st & 2nd Week)-Transplant",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month( 3rd & 4th Week)",
+        "formula": "Calcium Nitrate & All Growth"
+      },
+      {
+        "stage": "3rd  Month",
+        "formula": "Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "LEGUMES",
+    "duration_of_application": "2 MONTHS",
+    "application_intervals": "WEEKLY",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month",
+        "formula": "Calcium Nitrate & Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "MAIZE",
+    "duration_of_application": "4 MONTHS",
+    "application_intervals": "14 DAYS",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "3rd Month",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "4th Month",
+        "formula": "Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "POTATOES",
+    "duration_of_application": "3 MONTHS",
+    "application_intervals": "14 DAYS",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month",
+        "formula": "Strong Plant"
+      },
+      {
+        "stage": "2nd Month",
+        "formula": "Calcium Nitrate"
+      },
+      {
+        "stage": "3rd Month",
+        "formula": "Flower and Fruit"
+      }
+    ]
+  },
+  {
+    "name": "BULB ONIONS",
+    "duration_of_application": "4 MONTHS",
+    "application_intervals": "14 DAYS",
+    "application_rate": "1KG/ACRE",
+    "schedule_details": [
+      {
+        "stage": "1st Month-(Nursery)",
+        "formula": "All Growth"
+      },
+      {
+        "stage": "2nd Month-After transplanting",
+        "formula": "Strong plant"
+      },
+      {
+        "stage": "3rd Month",
+        "formula": "Calcium Nitrate & Strong plant"
+      },
+      {
+        "stage": "4th Month",
+        "formula": "Calcium Nitrate & Flower and Fruit"
+      }
+    ]
+  }
+]

@@ -4,7 +4,9 @@ import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from './ui/Button'
 
+import BiovitamLogo from './Logo'
 import { ThemeToggle } from './ThemeToggle'
+import { prefetchResource } from '../utils/performance'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,49 +23,46 @@ export function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Profile', path: '/profile' },
-    { name: 'Products', path: '/products' },
     { name: 'About', path: '/about' },
-    { name: 'Science', path: '/benefits' },
-    { name: 'Clientele', path: '/clientele' },
-    { name: 'Certifications', path: '/certifications' },
+    { name: 'Product', path: '/products' },
+    { name: 'Profile', path: '/profile' },
     { name: 'Contact', path: '/contact' },
   ]
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? 'glass-panel border-b-0 shadow-sm py-2'
-        : 'bg-transparent py-4'
+      className={`fixed top-2 sm:top-4 left-4 sm:left-6 md:left-10 right-4 sm:right-6 md:right-10 z-navbar transition-all duration-300 rounded-[2rem] ${isScrolled
+        ? 'glass-panel shadow-2xl py-1'
+        : 'bg-black/20 backdrop-blur-md border border-white/10 py-2'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="content-container">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-biovitam-primary rounded-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform">
-              <span className="text-white font-bold text-lg">B</span>
-            </div>
-            <span className="text-2xl font-heading font-bold text-biovitam-primary">
-              Biovitam
-            </span>
+            <BiovitamLogo size="sm" variant={isScrolled ? 'light' : 'light'} />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`font-medium transition-colors hover:text-biovitam-primary ${location.pathname === link.path
-                  ? 'text-biovitam-primary'
-                  : 'text-gray-600 dark:text-gray-300'
-                  }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <ThemeToggle />
+          <div className="hidden md:flex items-center space-x-10">
+            <div className="flex items-center space-x-6 lg:space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onMouseEnter={() => prefetchResource(link.path)}
+                  className={`text-base lg:text-lg font-black tracking-tight transition-all hover:scale-110 hover:text-biovitam-secondary navbar-text-glow ${location.pathname === link.path
+                    ? 'text-biovitam-secondary italic underline underline-offset-8 scale-110'
+                    : 'text-biovitam-dark dark:text-white'
+                    }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <div className="pl-6 border-l border-white/20 dark:border-white/10 flex items-center h-8">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -86,7 +85,7 @@ export function Navbar() {
               className="text-gray-600 dark:text-gray-300 hover:text-biovitam-primary transition-all p-3 rounded-lg active:bg-gray-100 dark:active:bg-gray-800"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={28} className="navbar-icon-glow" /> : <Menu size={28} className="navbar-icon-glow" />}
             </button>
           </div>
         </div>
@@ -99,16 +98,16 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+            className="md:hidden glass-panel border-t border-white/10 overflow-hidden rounded-b-[2rem]"
           >
             <div className="px-4 pt-4 pb-8 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`block py-2 text-lg font-medium ${location.pathname === link.path
-                    ? 'text-biovitam-primary'
-                    : 'text-gray-600'
+                  className={`block py-3 text-xl font-black tracking-tight transition-all active:scale-95 ${location.pathname === link.path
+                    ? 'text-biovitam-primary italic scale-105 ml-2'
+                    : 'text-biovitam-dark dark:text-gray-100 hover:text-biovitam-primary'
                     }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -116,7 +115,7 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="pt-4">
-                <Button className="w-full justify-center" onClick={() => {
+                <Button className="w-full justify-center py-6 text-lg font-bold" onClick={() => {
                   window.location.href = '/contact';
                   setIsOpen(false);
                 }}>
